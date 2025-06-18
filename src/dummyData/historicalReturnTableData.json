@@ -1,0 +1,47 @@
+[
+    {
+        "_id": "1y",
+        "period": "1 Year",
+        "return": "4.78%",
+        "adj_return": "2.90%",
+        "standard_deviation": "3.21%",
+        "max_drawdown": "-6.45%",
+        "pos_neg_months": "9 - 3"
+    },
+    {
+        "_id": "3y",
+        "period": "3 Years",
+        "return": "14.21%",
+        "adj_return": "10.83%",
+        "standard_deviation": "5.67%",
+        "max_drawdown": "-8.20%",
+        "pos_neg_months": "26 - 10"
+    },
+    {
+        "_id": "5y",
+        "period": "5 Years",
+        "return": "24.75%",
+        "adj_return": "18.90%",
+        "standard_deviation": "6.54%",
+        "max_drawdown": "-10.52%",
+        "pos_neg_months": "42 - 18"
+    },
+    {
+        "_id": "10y",
+        "period": "10 Years",
+        "return": "56.88%",
+        "adj_return": "41.20%",
+        "standard_deviation": "7.15%",
+        "max_drawdown": "-15.76%",
+        "pos_neg_months": "85 - 35"
+    },
+    {
+        "_id": "ytd",
+        "period": "YTD",
+        "return": "2.31%",
+        "adj_return": "1.05%",
+        "standard_deviation": "2.11%",
+        "max_drawdown": "-1.92%",
+        "pos_neg_months": "4 - 1"
+    }
+]

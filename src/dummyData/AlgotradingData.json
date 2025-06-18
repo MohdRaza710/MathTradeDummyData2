@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "card001",
+    "strategyName": "Zenith Alpha",
+    "strategyInitial": "A momentum-based strategy optimized for US equities with monthly rebalancing.",
+    "category": "Popular"
+  },
+  {
+    "_id": "card002",
+    "strategyName": "Geo Global Focus",
+    "strategyInitial": "This strategy invests in emerging markets using a country-weighted approach.",
+    "category": "Geographic Focus"
+  },
+  {
+    "_id": "card003",
+    "strategyName": "Volatility Defender",
+    "strategyInitial": "Designed to hedge during market turbulence using volatility index derivatives.",
+    "category": "Votility Rider"
+  },
+  {
+    "_id": "card004",
+    "strategyName": "Steady Wealth Builder",
+    "strategyInitial": "Focuses on long-term dividend-yielding blue-chip stocks.",
+    "category": "Long Term Value"
+  },
+  {
+    "_id": "card005",
+    "strategyName": "Drawdown Shield",
+    "strategyInitial": "Aims to reduce drawdown risk with a dynamic stop-loss mechanism.",
+    "category": "Drawdown Protection"
+  },
+  {
+    "_id": "card006",
+    "strategyName": "Quantified Trend Alpha",
+    "strategyInitial": "A systematic trend-following model with adaptive thresholds.",
+    "category": "Popular"
+  },
+  {
+    "_id": "card007",
+    "strategyName": "Euro Zone Edge",
+    "strategyInitial": "Geographically biased portfolio focusing on Eurozone tech giants.",
+    "category": "Geographic Focus"
+  },
+  {
+    "_id": "card008",
+    "strategyName": "Growth & Hedge Mix",
+    "strategyInitial": "Combines aggressive equity exposure with volatility protection layers.",
+    "category": "Votility Rider"
+  },
+  {
+    "_id": "card009",
+    "strategyName": "Legacy Builder",
+    "strategyInitial": "Stable and conservative approach aiming for generational wealth creation.",
+    "category": "Long Term Value"
+  },
+  {
+    "_id": "card010",
+    "strategyName": "Capital Guard Pro",
+    "strategyInitial": "Emphasizes capital preservation using a tactical asset allocation model.",
+    "category": "Drawdown Protection"
+  }
+]

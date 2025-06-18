@@ -1,0 +1,47 @@
+[
+    {
+        "drawdown": -10.25,
+        "drawdown_start": "2020-02-01",
+        "drawdown_bottom": "2020-03-15",
+        "drawdown_days": 43,
+        "recovery_end": "2020-06-10",
+        "recovery_days": 87,
+        "total_days": 130
+    },
+    {
+        "drawdown": -7.80,
+        "drawdown_start": "2021-01-10",
+        "drawdown_bottom": "2021-02-20",
+        "drawdown_days": 41,
+        "recovery_end": "2021-04-15",
+        "recovery_days": 54,
+        "total_days": 95
+    },
+    {
+        "drawdown": -5.55,
+        "drawdown_start": "2022-05-05",
+        "drawdown_bottom": "2022-05-28",
+        "drawdown_days": 23,
+        "recovery_end": "2022-07-01",
+        "recovery_days": 34,
+        "total_days": 57
+    },
+    {
+        "drawdown": -12.30,
+        "drawdown_start": "2023-03-10",
+        "drawdown_bottom": "2023-04-01",
+        "drawdown_days": 22,
+        "recovery_end": "2023-07-15",
+        "recovery_days": 105,
+        "total_days": 127
+    },
+    {
+        "drawdown": -8.75,
+        "drawdown_start": "2024-01-05",
+        "drawdown_bottom": "2024-02-08",
+        "drawdown_days": 34,
+        "recovery_end": "2024-04-20",
+        "recovery_days": 72,
+        "total_days": 106
+    }
+]

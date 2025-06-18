@@ -1,0 +1,37 @@
+[
+    {
+        "key": "1",
+        "name": "Apple Inc.",
+        "ticker": "AAPL",
+        "price": "$192.36",
+        "change": "+1.25%"
+    },
+    {
+        "key": "2",
+        "name": "Microsoft Corp.",
+        "ticker": "MSFT",
+        "price": "$328.90",
+        "change": "+0.75%"
+    },
+    {
+        "key": "3",
+        "name": "Tesla Inc.",
+        "ticker": "TSLA",
+        "price": "$182.47",
+        "change": "-2.12%"
+    },
+    {
+        "key": "4",
+        "name": "NVIDIA Corp.",
+        "ticker": "NVDA",
+        "price": "$951.23",
+        "change": "+3.09%"
+    },
+    {
+        "key": "5",
+        "name": "Amazon.com Inc.",
+        "ticker": "AMZN",
+        "price": "$126.45",
+        "change": "-0.58%"
+    }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "2c971289-1ccf-4f4d-888c-1c2dc3a0de76",
+    "strategyName": "Global Growth Strategy",
+    "sharpeRatio": 1.8,
+    "maxDrawdown": 0.12,
+    "winRate": 0.62,
+    "returnPercentage": 0.09,
+    "profitLossRatio": 1.5,
+    "theme": "Geographic Focus",
+    "img": "https://example.com/image1.png"
+  },
+  {
+    "_id": "87cc7f29-e8ae-40a8-a187-7131f10008f9",
+    "strategyName": "Safe Value Strategy",
+    "sharpeRatio": 1.2,
+    "maxDrawdown": 0.07,
+    "winRate": 0.58,
+    "returnPercentage": 0.06,
+    "profitLossRatio": 1.2,
+    "theme": "Drawdown Protection",
+    "img": "https://example.com/image2.png"
+  },
+  {
+    "_id": "5a41c360-5e51-4089-a82e-d3e1e8f8dda8",
+    "strategyName": "Aggressive Tech Growth",
+    "sharpeRatio": 2.4,
+    "maxDrawdown": 0.22,
+    "winRate": 0.68,
+    "returnPercentage": 0.15,
+    "profitLossRatio": 2.1,
+    "theme": "Popular",
+    "img": "https://example.com/image3.png"
+  },
+  {
+    "_id": "91211a82-ef0f-4681-8554-14697be0e7c1",
+    "strategyName": "Steady Income Plan",
+    "sharpeRatio": 0.95,
+    "maxDrawdown": 0.04,
+    "winRate": 0.72,
+    "returnPercentage": 0.04,
+    "profitLossRatio": 0.9,
+    "theme": "Long Term Value",
+    "img": "https://example.com/image4.png"
+  }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "parameter": "Sharpe Ratio",
+        "value": "0.78",
+        "compare_same_risk": "Top 20%",
+        "comapre_all_portfolios": "Top 35%"
+    },
+    {
+        "parameter": "Sortino Ratio",
+        "value": "1.05",
+        "compare_same_risk": "Top 15%",
+        "comapre_all_portfolios": "Top 30%"
+    },
+    {
+        "parameter": "Max Drawdown",
+        "value": "-8.75%",
+        "compare_same_risk": "Average",
+        "comapre_all_portfolios": "Better than 60%"
+    },
+    {
+        "parameter": "Volatility",
+        "value": "4.32%",
+        "compare_same_risk": "Slightly Below Avg",
+        "comapre_all_portfolios": "Better than 70%"
+    },
+    {
+        "parameter": "Return/Volatility",
+        "value": "0.92",
+        "compare_same_risk": "Top 25%",
+        "comapre_all_portfolios": "Top 40%"
+    },
+    {
+        "parameter": "Annualized Return",
+        "value": "6.24%",
+        "compare_same_risk": "Top 10%",
+        "comapre_all_portfolios": "Top 25%"
+    }
+]
