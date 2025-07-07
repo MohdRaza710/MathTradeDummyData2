@@ -1,45 +1,46 @@
 import React from 'react'
-import reactApexcharts from 'react-apexcharts'
-import { useState } from 'react'
+import ReactApexCharts from 'react-apexcharts'
 
-function CompositeGraph() {
-    const [graph, setGraph] = useState({
-        series: [44, 55, 13, 33],
+const CompositeGraph = () => {
+    const [graphData, setGraphData] = React.useState({
+        series: [44, 55, 41, 17, 15],
         options: {
             chart: {
-                type: 'donut'
+                type: 'donut',
             },
-            plotOptions: {
-                pie: {
-                    customScale: 0.8
-                }
-            },
-            Legend: {
+            legends: {
                 show: true,
             },
             responsive: [{
-                breakpoint: 480,
+                breakpoint: 460,
                 options: {
                     chart: {
-                        width: 200
+                        width: 300,
                     },
                     legend: {
-                        position: 'bottom'
+                        position: 'bottom',
+                    }
+                }
+            },
+            {
+                breakpoint: 700,
+                options: {
+                    chart: {
+                        width: 400,
+                    },
+                    legend: {
+                        show: false
                     }
                 }
             }]
-        }
-
+        },
     })
     return (
-        <div className='circle-chart chart'>
-            <reactApexcharts
-                options={graph.options}
-                series={graph.series}
-                type="donut"
-                width="500"
-            />
-        </div>
+        <>
+            <div>
+                <ReactApexCharts options={graphData?.options} width={500} series={graphData} type='donut' />
+            </div>
+        </>
     )
 }
 

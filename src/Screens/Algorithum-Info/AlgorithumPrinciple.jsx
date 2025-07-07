@@ -1,7 +1,5 @@
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 import Avatar from '@mui/material/Avatar'
-import Paper from '@mui/material/Paper'
-import { styled } from '@mui/material/styles'
 import word from '../../assets/word.png'
 import PrincipleBehindPdf from './PrincipleBehindPdf'
 import PrincipleTable from './PrincipleTable'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import AOS from 'aos'
-import { Routes } from './Config/routes'
+import { AppRoutes } from './Config/routes'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import './App.css'
 import { pdfjs } from 'react-pdf'
@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Routes />
+        <AppRoutes />
       </ThemeProvider>
     </div>
   )
