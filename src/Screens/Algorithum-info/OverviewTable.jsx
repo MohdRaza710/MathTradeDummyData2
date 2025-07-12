@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-// import Typography from '@mui/material/Typography'
-import { Descriptions, Typography } from 'antd'
+import { Typography } from '@mui/material'
 import axios from 'axios'
 import { ALGOINFO } from '../../utils/apis'
 import { useSelector } from 'react-redux'
@@ -11,24 +10,9 @@ const OverviewTable = (props) => {
     const [cardsData, setCardsData] = useState([])
     const [tempArr, settempArr] = useState([])
 
-    // useEffect(() => {
-    //     getCardsData()
-    // }, [])
-
     useEffect(() => {
         overviewTable?.length > 0 ? createArr() : null
     }, [overviewTable])
-
-    // const getCardsData = () => {
-    //     axios.get(ALGOINFO?.GET?.OVERVIEW)
-    //         .then((res) => {
-    //             const { data } = res
-    //             setCardsData([...data?.data])
-    //         })
-    //         .catch((e) => {
-    //             console.log('e', e)
-    //         })
-    // }
 
     const createArr = () => {
         const ArrKeys = Object.keys(overviewTable[0])
@@ -46,30 +30,28 @@ const OverviewTable = (props) => {
 
     return (
         <div className='scroll_class' style={{ overflow: 'auto' }}>
-            <Descriptions
+            <div
                 className='scroll_class'
                 title={<h4 style={{ backgroundColor: '#e4e0e0', padding: '10px', width: 100 }}>Overview</h4>}
                 bordered
                 column={{
-                    // xxl: 4,
                     xl: 2,
-                    // lg: 2,
                     md: 2,
                     sm: 2,
                     xs: 1,
                 }}
             >
                 <>
-                    <Descriptions.Item label={<h4>Overview</h4>}></Descriptions.Item>
+                    <Typography label={<h4>Overview</h4>}></Typography>
                     <br />
                     {tempArr?.map((row, i) => {
                         return (
-                            <Descriptions.Item key={i} label={<b>{row?.name}</b>}>{row?.size}</Descriptions.Item>
+                            <Typography key={i} label={<b>{row?.name}</b>}>{row?.size}</Typography>
                         )
                     })}
 
                 </>
-            </Descriptions>
+            </div>
         </div >
 
     )

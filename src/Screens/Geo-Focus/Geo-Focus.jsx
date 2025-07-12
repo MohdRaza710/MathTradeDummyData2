@@ -12,7 +12,8 @@ import { useSelector } from 'react-redux'
 import { CardsData } from '../../utils/constants'
 import { getAlgoInfoPageData } from '../../utils/helpers'
 import Checkbox from '@mui/material/Checkbox'
-import { Accordion } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Empty from '../../Components/Index'
 import { CheckRounded } from '@mui/icons-material'
 
@@ -68,7 +69,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     }
 }))
 
-const { Panel } = Accordion
 
 const GeoFocus = () => {
     const { history, setMartPage, userAction } = props
@@ -276,8 +276,229 @@ const GeoFocus = () => {
                     </p>
                     <div>
                         <Accordion>
-
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls="panel1-content"
+                                id="panel1-header"
+                            >
+                                <Typography className='bold' component="span">Theme</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Checkbox.Group>
+                                    {dataTheme?.map((a, i) => {
+                                        return (
+                                            <div key={i} style={{ width: '260px', display: "flex", justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                                <p style={{ fontWeight: '400' }}>{a}</p>
+                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                            </div>
+                                        )
+                                    })}
+                                </Checkbox.Group>
+                            </AccordionDetails>
                         </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel2-content'
+                                id='panel2-header'
+                            >
+                                <Typography className='bold' component="span">Sharp Ratio</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Checkbox.Group
+                                    onChange={onChangeSharpRatio}
+                                >
+                                    {dataSharpRatio?.map((a, i) => {
+                                        return (
+                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                                <p style={{ fontWeight: '400' }}>{a}</p>
+                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                            </div>
+                                        )
+                                    })}
+                                </Checkbox.Group>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel3-content'
+                                id='panel3-header'
+                            >
+                                <Typography className='bold' component="span">Max Drawdown</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Checkbox.Group
+                                    onChange={onChangeMaxDrawdown}
+                                >
+                                    {dataMaxDrawDown?.map((a, i) => {
+                                        return (
+                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                                <p style={{ fontWeight: '400' }}>{a}</p>
+                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                            </div>
+                                        )
+                                    })}
+                                </Checkbox.Group>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel4-content'
+                                id='panel4-header'
+                            >
+                                <Typography className='bold' component="span">Win Rate</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Checkbox.Group
+                                    onChange={onChangeWinRate}
+                                >
+                                    {dataWinRate?.map((a, i) => {
+                                        return (
+                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                                <p style={{ fontWeight: '400' }}>{a}</p>
+                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                            </div>
+                                        )
+                                    })}
+                                </Checkbox.Group>
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel4-content'
+                                id='panel4-header'
+                            >
+                                <Typography className='bold' component="span">Return Percentage</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails
+                                onChange={onChangeReturnPer}
+                            >
+                                {dataReturnPer?.map((a, i) => {
+                                    return (
+                                        <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                            <p style={{ fontWeight: '400' }}>{a}</p>
+                                            <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                        </div>
+                                    )
+                                })}
+                            </AccordionDetails>
+                        </Accordion>
+                        <Accordion>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls='panel5-content'
+                                id='panel5-header'
+                            >
+                                <Typography className='bold' component="span">Profit Loss Ratio</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails
+                                onChange={onChangeProfitLossRatio}
+                            >
+                                {dataProfitLossRatio?.map((a, i) => {
+                                    return (
+                                        <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
+                                            <p style={{ fontWeight: '400' }}>{a}</p>
+                                            <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
+                                        </div>
+                                    )
+                                })}
+                            </AccordionDetails>
+                        </Accordion>
+                    </div>
+                </div>
+                {!empty ?
+                    <div className='card-div-Algo-trading right_panel scroll_class' >
+                        {filteredValue()?.filter((value) => {
+                            if (searchValue === "") {
+                                return value
+                            } else if (value.strategyName?.toLowercase().includes(searchValue?.toLowerCase().trim())) {
+                                return value
+                            }
+                        })?.map((v, i) =>
+                            <div
+                                style={{ marginTop: 20 }}
+                                key={i}
+                                className='algo-cards-mart main_card_panel'
+                            >
+                                <Card
+                                    sx={{ boxShadow: 0 }}
+                                    onClick={() => {
+                                        getAlgoInfoPageData(v?._id, userActions)
+                                        setMartPage()
+                                        history?.push('/')
+                                        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }, 300)
+                                    }
+                                    }
+                                    key={i} className='pointerForCard'>
+                                    <CardMedia
+                                        component='img'
+                                        height='140'
+                                        image={CardsData[i]?.img || CardsData[0]?.img}
+                                        alt='green iguana'
+                                    />
+                                    <div className='avatarContainer'>
+                                        <Avatar alt='Travis Howard'
+                                            src={CardsData[i]?.img}
+                                            image={CardsData[i]?.img || CardsData[0]?.img}
+                                        />
+                                    </div>
+                                    <CardContent>
+                                        <div>
+                                            <Typography
+                                                gutterBottom
+                                                variant='h4'
+                                                component='div'
+                                                className='cards-head'
+                                            >
+                                                <b>{v?.strategyName}</b>
+                                            </Typography>
+                                            <Typography
+                                                gutterBottom
+                                                variant='body1'
+                                                component="div"
+                                                className='cards-typography'
+                                            >
+                                                <p style={{ marginBottom: '5px', fontSize: '11px' }} className='bold'>live performance</p>
+                                                <p style={{ display: 'flex', justifyContent: 'space-between' }} className='bold'>
+                                                    <span style={{ backgroundColor: '#ddd7d7', padding: '3px', borderRadius: '3px' }}>↓ {'0.94%'}</span>
+                                                    <b>1 Day</b>
+                                                </p>
+                                                <p style={{ display: 'flex', justifyContent: 'space-between' }} className='bold'>
+                                                    <span style={{ backgroundColor: '#ddd7d7', padding: '3px', borderRadius: '3px' }}>↑ {'1.53%'}</span>
+                                                    <b>Current Month</b>
+                                                </p>
+                                            </Typography>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                                <div className='overlay_card_panel_mart'>
+                                    <div className='text'>SUBSCRIBE NOW</div>
+                                </div>
+                            </div>
+                        )}
+                    </div> :
+                    <div className='empty_div'>
+                        <Empty />
+                    </div>
+                }
+            </div>
+            <div style={{ marginLeft: '50px', marginRight: '30px' }}>
+                <h3 className='bold'>
+                    Forum
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <div className='forum_panel'>
+                        <h4 className='bold'>Anyone know about Aggressive Global Income strategy?</h4>
+                        <h5 className='bold'>I am interested in the principle behind, anyone familiar with or heard of it before? I think it is quite interesting and would love to talk about it together. It is aggressive but in a way also quite safe in my opinion, that's why I find it fascinating. However, there are still some parts that make me doubt...</h5>
+                        <h6 className='bold user'>by User777</h6>
+                    </div>
+                    <div className='forum_panel space marginBtm'>
+                        <h4 className='bold'>Tips for trading</h4>
+                        <h5 className='bold'>Okay so i just started exploring on algo trading and there realy are a lot to discover. I feel like I am getting a bit lost in the ocean, there are just too many things going on and I can't quite catch up. Are there any tips or guides on algo trading? I would really appreciate the help thanks.</h5>
+                        <h6 className='bold user'>by User127</h6>
                     </div>
                 </div>
             </div>

@@ -3,10 +3,10 @@ import Table from '@mui/material/Table'
 import constituentData from '../../dummyData/constituentData.json'
 
 const PrincipleTable2 = () => {
-    const [loadind, setLoadind] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
     const relatedConstStock = constituentData
 
-    const columns1 = [
+    const columns = [
         {
             title: 'name',
             dataIndex: 'name',

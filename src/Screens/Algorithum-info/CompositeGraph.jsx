@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactApexCharts from 'react-apexcharts'
+import ReactApexCharts from 'apexcharts'
 
 const CompositeGraph = () => {
     const [graphData, setGraphData] = React.useState({

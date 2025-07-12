@@ -138,7 +138,7 @@ return (
 
     {/* <div className='info-toTrade-header' style={{ fontSize: '1.2em' }}>To Trade</div> */}
 
-    <div style={{ marginTop: '5px' }}>
+    <div style={{ marginTop: '5px' }}> {/* This div seems to be missing a closing tag or is part of a larger structure */}
       <TradelogTable />
     </div>
 

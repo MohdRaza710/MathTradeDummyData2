@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import TerminalIcon from '@mui/icons-material/Terminal'
 import ArticleIcon from '@mui/icons-material/Article'
@@ -7,7 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted'
 import FullscreenIcon from '@mui/icons-material/Fullscreen'
-import { SplitButton } from '../../Components'
+import { SplitButton } from '../../Components/DropDownButton/'
 import CodeOffIcon from '@mui/icons-material/CodeOff'
 import TextareaAutosize from '@mui/material/TextareaAutosize'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
@@ -15,7 +15,6 @@ import DeviceHubIcon from '@mui/icons-material/DeviceHub'
 import ViewTimelineIcon from '@mui/icons-material/ViewTimeline'
 import ViewComfyIcon from '@mui/icons-material/ViewComfy'
 import { textDes, contactCreationCode, constructorArgument, deployedByteCode, swarmSource } from '../../utils/constants'
-import { Terminal } from '@mui/icons-material'
 
 
 const Contract = () => {
@@ -28,7 +27,7 @@ const Contract = () => {
 
     const setABIInput = (e) => {
         let value = e.target.value
-        setAbi(v)
+        setAbi(value)
         localStorage.setItem('abi', v)
     }
 

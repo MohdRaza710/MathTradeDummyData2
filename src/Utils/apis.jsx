@@ -3,7 +3,6 @@ const host = `http://localhost:5000`
 const portfolioApi = `${host}/portfolio`
 const algoInfoApi = `${host}/algo-info`
 const algoMartApi = `${host}/algo-mart`
-const authApi = `${host}/users`
 
 const PORTFOLIO = {
     GET: {
@@ -44,14 +43,9 @@ const ALGOMART = {
     }
 }
 
-const AUTH = {
-    SOCIAL_LOGIN: `${authApi}/social-login`,
-}
-
 
 export {
     PORTFOLIO,
     ALGOINFO,
-    AUTH,
     ALGOMART
 }
