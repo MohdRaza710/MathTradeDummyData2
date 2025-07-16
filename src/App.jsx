@@ -4,6 +4,8 @@ import AOS from 'aos'
 import { Routes } from './Config/routes'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import './App.css'
+import 'aos/dist/aos.css'
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import { pdfjs } from 'react-pdf'
 
 AOS.init()
