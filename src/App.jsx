@@ -1,12 +1,10 @@
-import React from 'react'
-import { hot } from 'react-hot-loader/root'
-import AOS from 'aos'
-import { Routes } from './Config/routes'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
-import './App.css'
+import AOS from 'aos'
 import 'aos/dist/aos.css'
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import { pdfjs } from 'react-pdf'
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
+import './App.css'
+import { AppRoutes } from './Config/routes'
 
 AOS.init()
 
@@ -22,14 +20,14 @@ const theme = createTheme({
 })
 
 const App = () => {
-
+console.log('abc')
   return (
     <div>
       <ThemeProvider theme={theme} >
-        <Routes />
+        <AppRoutes />
       </ThemeProvider>
     </div>
   )
 }
 
-export default hot(App)
+export default App

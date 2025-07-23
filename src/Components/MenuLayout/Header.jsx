@@ -4,12 +4,12 @@ import Box from '@mui/material'
 import Typography from '@mui/material'
 import AppBar from '@mui/material'
 import Toolbar from '@mui/material'
-import { bgColor } from '../../utils/constants'
 import { AccountCircle } from '@mui/icons-material'
 import SearchIcon from '@mui/icons-material/Search'
 import { styled, alpha } from '@mui/material/styles'
 import InputBase from '@mui/material'
 import { MoreVert } from '@mui/icons-material'
+import { bgColor } from '../../Utils/constants'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',

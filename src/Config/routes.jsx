@@ -1,25 +1,22 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Portfolio, ContactUs, FundManagement, PortfolioNew, GeoFocus } from '../Screens'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import { Portfolio } from '../Screens'
 import allPaths from './paths'
+// import Page404 from '../Screens/Page404'
 
-
-
-const Routes = () => {
+const AppRoutes = () => {
     return (
         <Router>
-            <Switch>
-                <Route exact path={allPaths.PORTFOLIO} component={Portfolio} />
-                <Route exact path={allPaths.CONTACT} component={ContactUs} />
-                <Route exact path={allPaths.FUND_MANAGEMENT} component={FundManagement} />
-                <Route exact path={allPaths.PORTFOLIO} component={PortfolioNew} />
-                <Route exact path={allPaths.GEO_FOCUS} component={GeoFocus} />
-                <Route component={Page404} />
-
-            </Switch>
+            <Routes>
+                <Route path={allPaths.PORTFOLIO} element={<Portfolio />} />
+                {/* <Route path={allPaths.CONTACT} element={<ContactUs />} /> */}
+                {/* <Route path={allPaths.FUND_MANAGEMENT} element={<FundManagement />} /> */}
+                {/* <Route path={allPaths.PORTFOLIO_NEW} element={<PortfolioNew />} /> */}
+                {/* <Route path={allPaths.GEO_FOCUS} element={<GeoFocus />} /> */}
+                {/* <Route path="*" element={<Page404 />} /> */}
+            </Routes>
         </Router>
     )
 }
 
-export {
-    Routes
-}
+export { AppRoutes }
+
