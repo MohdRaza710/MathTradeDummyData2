@@ -30,7 +30,7 @@ const WithDraw = () => {
                     <a href='#'>Show Breakdown</a>
                 </div>
                 <div className='withdraw-submit-button'>
-                    <Button color='success' type='primary' shape='round' size={'large'}>
+                    <Button sx={{fontSize: '2em'}} color='success' type='primary' shape='round' size={'large'}>
                         Submit
                     </Button>
                 </div>

@@ -1,0 +1,38 @@
+/* In AlgotradingCard.css */
+
+/* Apply overflow property to ensure scrollability */
+.scroll_class {
+  overflow-y: auto; /* For vertical scrolling */
+  /* If you also need horizontal scrolling, add: */
+  /* overflow-x: auto; */
+}
+
+/* Target the scrollbar track */
+.scroll_class::-webkit-scrollbar {
+  width: 12px; /* For vertical scrollbars */
+  height: 12px; /* For horizontal scrollbars */
+}
+
+/* Target the scrollbar thumb */
+.scroll_class::-webkit-scrollbar-thumb {
+  background-color: #888; /* Darker grey thumb */
+  border-radius: 6px; /* Rounded corners for the thumb */
+  border: 3px solid #f1f1f1; /* Add a border to make it stand out */
+}
+
+/* On hover, make the thumb slightly darker */
+.scroll_class::-webkit-scrollbar-thumb:hover {
+  /* background-color: #555; */
+}
+
+/* Target the scrollbar track when there's no thumb (optional) */
+.scroll_class::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+/* For Firefox, you'd use: */
+.scroll_class {
+  scrollbar-width: thin; /* auto | thin | none */
+  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
+}

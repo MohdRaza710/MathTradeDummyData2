@@ -1,11 +1,11 @@
 import React from 'react'
 import { Paper } from '@mui/material'
-import TableContainer from '@mui/material'
-import Table from '@mui/material'
-import TableBody from '@mui/material'
-import TableHead from '@mui/material'
-import TableRow from '@mui/material'
-import TableCell from '@mui/material'
+import TableContainer from '@mui/material/TableContainer'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
 import portfolioEfficiency from '../../dummyData/portfolioEfficiency.json'
 
 const PortfolioEfficiency = () => {

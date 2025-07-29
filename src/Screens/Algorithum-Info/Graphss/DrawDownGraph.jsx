@@ -1,11 +1,11 @@
 import React from 'react'
-import ReactApexChart from 'react-apexchart'
+import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 import drawDownData from '../../../dummyData/drawDownData.json'
 
 const DrawDown = () => {
     const drawDown = useSelector(state => state?.userReducer?.drawDown || [])
-    const [graphData, setGraphData] = useState({
+    const [graphData, setGraphData] = React.useState({
         series: [{
             data: drawDownData?.[0]?.data
 

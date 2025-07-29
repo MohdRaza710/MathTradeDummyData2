@@ -2,7 +2,7 @@ import React from 'react'
 import HistoricalGraph from './HistoricalGraph'
 import PrincipleTable from './PrincipleTable'
 import PrincipleTable2 from './PrincipleTable2'
-import TradeLogTable from './TradeLogTable'
+import TradeLogTable from './TradelogTable'
 
 const columns1 = [
   {

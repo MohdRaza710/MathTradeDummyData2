@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
-import Card from '@mui/material'
-import Box from '@mui/material'
+import Card from '@mui/material/Card'
+import Box from '@mui/material/Box'
 
 const blueDot = (
     <Box
@@ -15,15 +15,15 @@ const Deposite = () => {
     return (
         <div clasName='withDraw-main-div'>
             <div clasName='deposite-new-bar' style={{ borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }}>
-                <div clasName='deposite-bar'>
+                <div style={{ fontSize: 15, marginTop: 5 }}>
                     Fund Your Account
                 </div>
             </div>
-            <div clasName='middle-deposite-bar'>
+            <div style={{ fontSize: 15 }}>
                 Payment Methods in Hong Kong
             </div>
             <div clasName='deposite-box1-content'>
-                <Card bordered={true} style={{ width: '100%', background: 'cream' }}>
+                <Card bordered={true} style={{ width: '100%', background: 'cream', fontSize: 15, marginTop: 2 }}>
                     <p>
                         {blueDot} {" "} Atm
                     </p>
@@ -39,22 +39,22 @@ const Deposite = () => {
                             {blueDot} {" "} Cash/Cheque <br />
                             (at Bank Counters)
                         </div>
-                        <div><Button type='primary' className='deposite-instruction-btn'>To see instruction</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 147 }}>To see instruction</Button></div>
                     </div>
 
                     <div clasName='deposite-btn-content'>
                         <div>
                             {blueDot} {" "} Online PPS
                         </div>
-                        <div><Button type='primary' className='deposite-instruction-btn'>To pay instantly</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 149, marginBottom: 2 }}>To pay instantly</Button></div>
                     </div>
                 </Card>
             </div>
-            <div clasName='middle-deposite-bar'>
+            <div style={{ fontSize: 15, marginTop: 5, marginBottom: 5 }}>
                 Payment Methods outside Hong Kong
             </div>
             <div clasName='deposite-box1-content'>
-                <Card bordered={true} style={{ width: '100%', background: 'cream' }}>
+                <Card bordered={true} style={{ width: '100%', background: 'cream', fontSize: 15 }}>
                     <p>
                         {blueDot} {" "} Telegraphic Transfer
                     </p>
@@ -62,7 +62,7 @@ const Deposite = () => {
                         <div>
                             {blueDot} {" "} Bank Draft
                         </div>
-                        <div><Button type='primary' className='deposite-instruction-btn'>To see instruction</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 147 }}>To see instruction</Button></div>
                     </div>
                     <p>
                         {blueDot} {" "} Visa card / Master card / UnionPay card <br />
@@ -73,7 +73,7 @@ const Deposite = () => {
                             {blueDot} {" "} Flywire <br />
                             (may use Alipay, Visa card, Master card, UnionPay card, etc.)
                         </div>
-                        <div><Button type='primary' className='deposite-instruction-btn'>To pay instantly</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 149, marginBottom: 2 }}>To pay instantly</Button></div>
                     </div>
                 </Card>
             </div>

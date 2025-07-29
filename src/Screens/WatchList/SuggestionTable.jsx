@@ -8,6 +8,8 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
 import { Line } from 'react-chartjs-2'
+import monkey from '../../assets/monkey-Pic.jpg'
+
 
 const SuggestionTable = () => {
     const [page, setPage] = React.useState(0)

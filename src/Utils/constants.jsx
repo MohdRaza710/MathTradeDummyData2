@@ -17,7 +17,7 @@ const drawerRoutes = [
     {
         title: 'Home',
         route: allPaths.HOME,
-        icon: <HomeOutlined />
+        icon: <HouseOutlined />
     },
     {
         title: 'Portfolio',

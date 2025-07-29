@@ -1,11 +1,11 @@
 import React from 'react'
 import { Paper } from '@mui/material'
-import Table from '@mui/material'
-import TableBody from '@mui/material'
-import TableContainer from '@mui/material'
-import TableHead from '@mui/material'
-import TableRow from '@mui/material'
-import TableCell from '@mui/material'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
 import { useSelector } from 'react-redux'
 
 const RollingReturnTable = () => {
@@ -22,16 +22,16 @@ const RollingReturnTable = () => {
         <TableHead>
 
           <TableRow>
-            <TableCell clasName='table-header' colspan={1}></TableCell>
-            <TableCell clasName='table-header' align='center' colspan={3}>Return</TableCell>
-            <TableCell clasName='table-header' colspan={1}></TableCell>
+            <TableCell className='table-header' colSpan={1}></TableCell>
+            <TableCell className='table-header' align='center' colSpan={3}>Return</TableCell>
+            <TableCell className='table-header' colSpan={1}></TableCell>
           </TableRow>
           <TableRow>
-            <TableCell clasName='table-header' align='center'>Rolling</TableCell>
-            <TableCell clasName='table-header' align='center'>Average (%)</TableCell>
-            <TableCell clasName='table-header' align='center'>Best (%)</TableCell>
-            <TableCell clasName='table-header' align='center'>Worst (%)</TableCell>
-            <TableCell clasName='table-header' align='center'>Negavtive Periods</TableCell>
+            <TableCell className='table-header' align='center'>Rolling</TableCell>
+            <TableCell className='table-header' align='center'>Average (%)</TableCell>
+            <TableCell className='table-header' align='center'>Best (%)</TableCell>
+            <TableCell className='table-header' align='center'>Worst (%)</TableCell>
+            <TableCell className='table-header' align='center'>Negavtive Periods</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

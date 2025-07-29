@@ -33,7 +33,7 @@ const OverviewTable = (props) => {
             <div
                 className='scroll_class'
                 title={<h4 style={{ backgroundColor: '#e4e0e0', padding: '10px', width: 100 }}>Overview</h4>}
-                bordered
+                
                 column={{
                     xl: 2,
                     md: 2,

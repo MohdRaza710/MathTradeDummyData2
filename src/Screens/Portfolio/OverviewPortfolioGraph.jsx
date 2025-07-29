@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@mui/material'
 import _ from 'lodash'
-import ReactApexChart from 'apexcharts'
+import ReactApexChart from 'react-apexcharts'
 import algoMartGraph from '../../dummyData/algoMartGraph.json'
 
 const OverviewPortfolioGraph = (props) => {

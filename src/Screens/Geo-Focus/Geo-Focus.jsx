@@ -1,29 +1,32 @@
-import React from 'react'
-import SearchIcon from '@mui/icons-material/Search'
-import Avatar from '@mui/material/Avatar'
-import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent'
-import CardMedia from '@mui/material/CardMedia'
-import InputBase from '@mui/material/InputBase'
-import { alpha, styled } from '@mui/material/styles'
-import Typography from '@mui/material/Typography'
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { CardsData } from '../../utils/constants'
-import { getAlgoInfoPageData } from '../../utils/helpers'
-import Checkbox from '@mui/material/Checkbox'
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
+import SearchIcon from '@mui/icons-material/Search';
+import Avatar from '@mui/material/Avatar';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Checkbox from '@mui/material/Checkbox';
+import InputBase from '@mui/material/InputBase';
+import { alpha, styled } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { CardsData } from '../../utils/constants';
+import { getAlgoInfoPageData } from '../../utils/helpers';
+import Empty from '../../Components/Empty/Empty';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Empty from '../../Components/Index'
-import { CheckRounded } from '@mui/icons-material'
+import PropTypes from 'prop-types';
 
-const dataTheme = ['Popular', 'Geographic Focus', 'Votility Rider', 'Long Term Value', 'Drawdown Protection']
-const dataSharpRatio = ['< 1', '> 1', '> 2', '> 3']
-const dataMaxDrawDown = ['< 5%', '5-10%', '10-20%', '20%-30%', '> 30%']
-const dataWinRate = ['< 30%', '> 30%', '> 50%', '> 70%',]
-const dataReturnPer = ['< 1%', '> 1%', '> 5%', '> 10%', '> 15%']
-const dataProfitLossRatio = ['< 1', '> 1', '> 2', '> 3']
+// Constants
+const dataTheme = ['Popular', 'Geographic Focus', 'Votility Rider', 'Long Term Value', 'Drawdown Protection'];
+const dataSharpRatio = ['< 1', '> 1', '> 2', '> 3'];
+const dataMaxDrawDown = ['< 5%', '5-10%', '10-20%', '20%-30%', '> 30%'];
+const dataWinRate = ['< 30%', '> 30%', '> 50%', '> 70%'];
+const dataReturnPer = ['< 1%', '> 1%', '> 5%', '> 10%', '> 15%'];
+const dataProfitLossRatio = ['< 1', '> 1', '> 2', '> 3'];
 
+// Styled Components
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: '1em',
@@ -32,9 +35,6 @@ const Search = styled('div')(({ theme }) => ({
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    '& .css-1kcggdq-MuiInputBase-root .MuiInputBase-input': {
-        width: '20em'
-    },
     marginRight: theme.spacing(2),
     marginLeft: 0,
     width: '100%',
@@ -42,7 +42,7 @@ const Search = styled('div')(({ theme }) => ({
         marginLeft: theme.spacing(3),
         width: 'auto',
     },
-}))
+}));
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
@@ -52,387 +52,338 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
-}))
+}));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
         transition: theme.transitions.create('width'),
         width: '100%',
-        // borderRadius: '1em',
         [theme.breakpoints.up('md')]: {
             width: '25ch'
         }
     }
-}))
+}));
 
+// Checkbox Group Component
+const CheckboxGroup = ({ options, onChange, selectedValues }) => {
+    const handleCheckboxChange = (event) => {
+        const { value, checked } = event.target;
+        onChange((prev) => {
+            if (checked) {
+                return [...prev, value];
+            } else {
+                return prev.filter((item) => item !== value);
+            }
+        });
+    };
 
-const GeoFocus = () => {
-    const { history, setMartPage, userAction } = props
-    const cardsData = useSelector(state => state.userReducer?.algoTradingCard)
-    const [searchValue, setSearchValue] = useState('')
-    const [empty, setEmpty] = useState(true)
-    const [sharpRatio, setSharpRatio] = useState({
-        '< 1': false,
-        '< 1': false,
-        '< 2': false,
-        '< 3': false
-    })
-    const [maxDrawdown, setMaxDrawDown] = useState([])
-    const [winRate, setWinRate] = useState([])
-    const [returnPer, setReturnPer] = useState([])
-    const [proLossRatio, setProLossRatio] = useState([])
-    const [checkedOpt, setCheckedOpt] = useState([])
+    return (
+        <FormGroup>
+            {options.map((option) => (
+                <FormControlLabel
+                    key={option}
+                    control={
+                        <Checkbox
+                            checked={selectedValues.includes(option)}
+                            onChange={handleCheckboxChange}
+                            value={option}
+                        />
+                    }
+                    label={option}
+                />
+            ))}
+        </FormGroup>
+    );
+};
 
+CheckboxGroup.propTypes = {
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onChange: PropTypes.func.isRequired,
+    selectedValues: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
-    useEffect(() => { }, [returnPer, winRate, checkedOpt, proLossRatio, maxDrawdown])
+// Main Component
+const GeoFocus = (props) => {
+    const { history, setMartPage, userActions } = props;
+    const cardsData = useSelector(state => state?.userReducer?.algoTrdaingCard) || [];
+    const [searchValue, setSearchValue] = useState('');
+    const [empty, setEmpty] = useState(false);
+    const [sharpRatio, setSharpRatio] = useState([]);
+    const [maxDrawDown, setMaxDrawDown] = useState([]);
+    const [winRate, setWinRate] = useState([]);
+    const [returnPer, setReturnPer] = useState([]);
+    const [proLossRatio, setProLossRatio] = useState([]);
+    const [checkedOpt, setCheckedOpt] = useState({});
+
+    useEffect(() => {
+        setEmpty(cardsData.length === 0);
+    }, [cardsData]);
 
     const handleChangeSearch = (event) => {
-        setSearchValue(event.target.value)
-    }
+        setSearchValue(event.target.value);
+    };
 
     const onChangeSharpRatio = (checkedValues) => {
-        setSharpRatio(checkedValues)
+        setSharpRatio(checkedValues);
         setCheckedOpt(opt => ({
             ...opt,
-            sharpRatio: checkedValues
-        }))
-    }
+            sharpeRatio: checkedValues
+        }));
+    };
 
     const onChangeMaxDrawdown = (checkedValues) => {
-        setMaxDrawDown(checkedValues)
+        setMaxDrawDown(checkedValues);
         setCheckedOpt(opt => ({
             ...opt,
             maxDrawdown: checkedValues
-        }))
-    }
+        }));
+    };
 
     const onChangeWinRate = (checkedValues) => {
-        setWinRate(checkedValues)
+        setWinRate(checkedValues);
         setCheckedOpt(opt => ({
             ...opt,
             winRate: checkedValues
-        }))
-    }
+        }));
+    };
 
     const onChangeReturnPer = (checkedValues) => {
-        setReturnPer(checkedValues)
+        setReturnPer(checkedValues);
         setCheckedOpt(opt => ({
             ...opt,
-            returnPer: checkedValues
-        }))
-    }
+            returnPercentage: checkedValues
+        }));
+    };
 
     const onChangeProfitLossRatio = (checkedValues) => {
-        setProLossRatio(checkedValues)
+        setProLossRatio(checkedValues);
         setCheckedOpt(opt => ({
             ...opt,
             profitLossRatio: checkedValues
-        }))
-    }
+        }));
+    };
 
     const applyConditions = (cD, d, n) => {
-        const conditions = []
-        if (cD.slice(-1) == '%') {
-            const cDSplitArr = cD.split(" ")
-            if (cDSplitArr[0] == '>') {
-                let c1
-                n == 'returnPercentage' ? c2 = { data: d, entity: n, checkedData: cD, condition: d?.[n] <= cDSplitArr[1].substring(0, cDSplitArr[1].length - 1) } :
-                    c1 = { data: d, entity: n, checkedData: cD, condition: (d?.[n] * 100) <= cDSplitArr[1].substring(0, cDSplitArr[1].length - 1) }
-                conditions.push(c1)
+        const conditions = [];
+        if (!cD || !d || !n) return conditions;
+
+        try {
+            if (cD.slice(-1) === '%') {
+                const cDSplitArr = cD.split(" ");
+                if (cDSplitArr[0] === '>') {
+                    const value = parseFloat(cDSplitArr[1].substring(0, cDSplitArr[1].length - 1));
+                    if (n === 'returnPercentage') {
+                        conditions.push({ condition: d[n] > value });
+                    } else {
+                        conditions.push({ condition: (d[n] * 100) > value });
+                    }
+                } else if (cDSplitArr[0] === '<') {
+                    const value = parseFloat(cDSplitArr[1].substring(0, cDSplitArr[1].length - 1));
+                    if (n === 'returnPercentage') {
+                        conditions.push({ condition: d[n] <= value });
+                    } else {
+                        conditions.push({ condition: (d[n] * 100) <= value });
+                    }
+                } else if (cDSplitArr[0].includes('-')) {
+                    const rangeArr = cD.split("-");
+                    const r1 = parseFloat(rangeArr[0]);
+                    const r2 = parseFloat(rangeArr[1].substr(0, rangeArr[1].length - 1));
+                    conditions.push({
+                        condition: d[n] && (d[n] * 100) >= r1 && (d[n] * 100) <= r2
+                    });
+                }
+            } else {
+                const cDSplitInArr = cD.split(" ");
+                if (cDSplitInArr[0] === ">") {
+                    const value = parseFloat(cDSplitInArr[1]);
+                    conditions.push({ condition: d[n] > value });
+                } else if (cDSplitInArr[0] === "<") {
+                    const value = parseFloat(cDSplitInArr[1]);
+                    conditions.push({ condition: d[n] <= value });
+                }
             }
-            if (cDSplitArr[0] == '<') {
-                let c2
-                n == 'returnPercentage' ? c2 = { data: d, entity: n, checkedData: cD, condition: (d?.[n] * 100) <= cDSplitArr[1].substring(0, cDSplitArr[1].length - 1) } :
-                    conditions.push(c2)
-            }
-            if (cDSplitArr[0].includes('_')) {
-                const rangeArr = cD.split('_')
-                const r1 = rangeArr[0]
-                const r2 = rangeArr[1].substr(0, rangeArr[1].length - 1)
-                let c3 = { data: d, entity: n, checkedData: cD, condition: d?.[n] && (d?.[n] * 100) >= r1 && (d?.[n] * 100) <= r2 }
-                conditions.push(c3)
-            }
+        } catch (error) {
+            console.error('Error applying conditions:', error);
         }
-        else {
-            const cDSplitArr = cD.split(" ")
-            if (cDSplitArr[0] == '>') {
-                let c4 = { data: d, entity: n, checkedData: cD, condition: d?.[n] > cDSplitArr[1] }
-                conditions.push(c4)
-            }
-            if (cDSplitArr[0] == '<') {
-                let c5 = { data: d, entity: n, checkedData: cD, condition: d?.[n] <= cDSplitArr[1] }
-                conditions.push(c5)
-            }
-        }
-        return conditions.map(c => c)
-    }
+
+        return conditions;
+    };
 
     const filterData = (allData, checkedData, entities) => {
-        const filteredData = []
-        entities.map((n) => {
-            checkedData?.[n].map((cD) => {
-                allData.map((d) => {
-                    applyConditions(cD, d, n).map((c) => {
-                        c?.condition ? filteredData.push(d) : null
-                    })
-                })
-            })
-        })
+        if (!allData || !Array.isArray(allData)) return [];
+        if (!checkedData || typeof checkedData !== 'object') return allData;
+        if (!entities || !Array.isArray(entities)) return allData;
 
-        const activeGroups = Object.entries(checkedData).filter(e => { return e[1].length }).length
+        const filteredData = [];
+        const conditionCount = {};
+
+        entities.forEach((n) => {
+            if (checkedData[n] && Array.isArray(checkedData[n])) {
+                checkedData[n].forEach((cD) => {
+                    allData.forEach((d) => {
+                        const conditions = applyConditions(cD, d, n);
+                        conditions.forEach((c) => {
+                            if (c?.condition) {
+                                filteredData.push(d);
+                                conditionCount[d._id] = (conditionCount[d._id] || 0) + 1;
+                            }
+                        });
+                    });
+                });
+            }
+        });
+
+        const activeGroups = Object.keys(checkedData).filter(
+            key => checkedData[key] && checkedData[key].length > 0
+        ).length;
+
         if (activeGroups > 1) {
-            const filteredDuplicates = []
-            const count = {};
-            const duplicateIds = filteredData.map(v => v._id).filter((v, i, vIds) => vIds.indexOf(v) !== i)
-            const duplicates = []
-            filteredData.filter(obj => {
-                duplicateIds.includes(obj._id) ? duplicates.push(obj) : null
-                count[obj._id] = (count[obj._id] || 0) + 1
-            })
-
-            allData.map((aD) => {
-                count ? [count].map((c => {
-                    c?.[aD._id] && c?.[aD._id] == activeGroups ? filteredDuplicates.push(aD) : null
-                })) : null
-            })
-
-            return filteredDuplicates
+            return allData.filter(item => conditionCount[item._id] === activeGroups);
         }
-        else {
-            return filteredData
-        }
-    }
+
+        return filteredData;
+    };
 
     const filteredValue = () => {
-        let data = []
-        if (Object.entries(checkedOpt).filter(e => { return e[1].length }).length > 0) {
-            [checkedOpt].map((d) => {
-                let fieldNames = Object.getOwnPropertyNames(d)
-                filterData(cardsData, d, fieldNames).map((fD) => {
-                    !data.includes(fD) ? data.push(fD) : null
-                })
-            })
-            return data
+        if (!cardsData || !Array.isArray(cardsData)) return [];
+        if (!checkedOpt || typeof checkedOpt !== 'object') return cardsData;
+
+        const activeFilters = Object.keys(checkedOpt).filter(
+            key => checkedOpt[key] && checkedOpt[key].length > 0
+        );
+
+        if (activeFilters.length === 0) {
+            return cardsData;
         }
-        else {
-            return cardsData
-        }
-    }
+
+        return filterData(cardsData, checkedOpt, activeFilters);
+    };
+
+    const filteredCards = filteredValue()?.filter((val) => {
+        if (!val || !val.strategyName) return false;
+        if (!searchValue || searchValue.trim() === "") return true;
+        return val.strategyName.toLowerCase().includes(searchValue.toLowerCase().trim());
+    });
 
     return (
         <div style={{ backgroundColor: '' }}>
-            <div >
+            <div>
                 <div className='relative'>
-                    {/* <div className=''> */}
-                    <h1 className='bold geofocus-head'>
-                        Algorithm Mart
-                    </h1>
-                    {/* </div> */}
+                    <h1 className='bold geofocus-head'>Algorithm Mart</h1>
                 </div>
-                <div style={{ marginLeft: '50px', marginRight: '30px', }}>
-
+                <div style={{ marginLeft: '50px', marginRight: '30px' }}>
                     <div className='head_panel'>
                         <div>
-                            <div>
-                                <Search className=''>
-                                    <SearchIconWrapper>
-                                        <SearchIcon />
-                                    </SearchIconWrapper>
-                                    <StyledInputBase
-                                        className='seachInput'
-                                        sx={{ fontSize: '19px', color: 'black' }}
-                                        placeholder='Search by name or attribute'
-                                        inputProps={{ 'aria-label': 'search' }}
-                                        onChange={handleChangeSearch}
-                                    />
-
-                                </Search>
-                            </div>
+                            <Search>
+                                <SearchIconWrapper>
+                                    <SearchIcon />
+                                </SearchIconWrapper>
+                                <StyledInputBase
+                                    className='seachInput'
+                                    sx={{ fontSize: '19px', color: 'black' }}
+                                    placeholder='Search by name or attribute'
+                                    inputProps={{ 'aria-label': 'search' }}
+                                    onChange={handleChangeSearch}
+                                />
+                            </Search>
                         </div>
                         <div className='no_algo'>
-                            <p>
-                                <b>No . of Algorithum</b>
-                            </p>
+                            <p><b>No. of Algorithms</b></p>
                             <p style={{ textAlign: 'right', fontWeight: 'bold' }}>
-                                {cardsData?.length}
+                                {cardsData?.length || 0}
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div className='algo_panel'>
-                <h3 className='bold'>
-                    Algorithums
-                </h3>
+                <h3 className='bold'>Algorithms</h3>
             </div>
             <div className='properties_panel'>
                 <div className={!empty ? 'left_panel' : null}>
-                    <p style={{ textTransform: 'uppercase', colo: 'grey', fontWeight: 'bold', marginTop: 15 }}>
+                    <p style={{ textTransform: 'uppercase', color: 'grey', fontWeight: 'bold', marginTop: 15 }}>
                         Properties
                     </p>
-                    <div>
+                    <div className='accordian_panel'>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1-content"
-                                id="panel1-header"
-                            >
-                                <Typography className='bold' component="span">Theme</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Theme</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
-                                <Checkbox.Group>
-                                    {dataTheme?.map((a, i) => {
-                                        return (
-                                            <div key={i} style={{ width: '260px', display: "flex", justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                                <p style={{ fontWeight: '400' }}>{a}</p>
-                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                            </div>
-                                        )
-                                    })}
-                                </Checkbox.Group>
-                            </AccordionDetails>
+                            <CheckboxGroup
+                            options={dataTheme}
+                            onChange={() => { }}
+                            selectedValues={[]}
+                            />
                         </Accordion>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel2-content'
-                                id='panel2-header'
-                            >
-                                <Typography className='bold' component="span">Sharp Ratio</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Sharp Ratio</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
-                                <Checkbox.Group
-                                    onChange={onChangeSharpRatio}
-                                >
-                                    {dataSharpRatio?.map((a, i) => {
-                                        return (
-                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                                <p style={{ fontWeight: '400' }}>{a}</p>
-                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                            </div>
-                                        )
-                                    })}
-                                </Checkbox.Group>
-                            </AccordionDetails>
+                            <CheckboxGroup
+                                options={dataSharpRatio}
+                                selectedValues={sharpRatio}
+                                onChange={onChangeSharpRatio}
+                            />
                         </Accordion>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel3-content'
-                                id='panel3-header'
-                            >
-                                <Typography className='bold' component="span">Max Drawdown</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Max Drawdown</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
-                                <Checkbox.Group
-                                    onChange={onChangeMaxDrawdown}
-                                >
-                                    {dataMaxDrawDown?.map((a, i) => {
-                                        return (
-                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                                <p style={{ fontWeight: '400' }}>{a}</p>
-                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                            </div>
-                                        )
-                                    })}
-                                </Checkbox.Group>
-                            </AccordionDetails>
+                            <CheckboxGroup
+                                options={dataMaxDrawDown}
+                                selectedValues={maxDrawDown}
+                                onChange={onChangeMaxDrawdown}
+                            />
                         </Accordion>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel4-content'
-                                id='panel4-header'
-                            >
-                                <Typography className='bold' component="span">Win Rate</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Win Rate</Typography>
                             </AccordionSummary>
-                            <AccordionDetails>
-                                <Checkbox.Group
-                                    onChange={onChangeWinRate}
-                                >
-                                    {dataWinRate?.map((a, i) => {
-                                        return (
-                                            <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                                <p style={{ fontWeight: '400' }}>{a}</p>
-                                                <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                            </div>
-                                        )
-                                    })}
-                                </Checkbox.Group>
-                            </AccordionDetails>
+                            <CheckboxGroup
+                                options={dataWinRate}
+                                selectedValues={winRate}
+                                onChange={onChangeWinRate}
+                            />
                         </Accordion>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel4-content'
-                                id='panel4-header'
-                            >
-                                <Typography className='bold' component="span">Return Percentage</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Return Percentage</Typography>
                             </AccordionSummary>
-                            <AccordionDetails
+                            <CheckboxGroup
+                                options={dataReturnPer}
+                                selectedValues={returnPer}
                                 onChange={onChangeReturnPer}
-                            >
-                                {dataReturnPer?.map((a, i) => {
-                                    return (
-                                        <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                            <p style={{ fontWeight: '400' }}>{a}</p>
-                                            <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                        </div>
-                                    )
-                                })}
-                            </AccordionDetails>
+                            />
                         </Accordion>
                         <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls='panel5-content'
-                                id='panel5-header'
-                            >
-                                <Typography className='bold' component="span">Profit Loss Ratio</Typography>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography className='bold'>Profit Loss Ratio</Typography>
                             </AccordionSummary>
-                            <AccordionDetails
+                            <CheckboxGroup
+                                options={dataProfitLossRatio}
+                                selectedValues={proLossRatio}
                                 onChange={onChangeProfitLossRatio}
-                            >
-                                {dataProfitLossRatio?.map((a, i) => {
-                                    return (
-                                        <div key={i} style={{ width: '260px', display: 'flex', justifyContent: 'space-between', fontWeight: 'normal' }}>
-                                            <p style={{ fontWeight: '400' }}>{a}</p>
-                                            <Checkbox style={{ marginLeft: '20px' }} value={a}></Checkbox>
-                                        </div>
-                                    )
-                                })}
-                            </AccordionDetails>
+                            />
                         </Accordion>
                     </div>
                 </div>
-                {!empty ?
-                    <div className='card-div-Algo-trading right_panel scroll_class' >
-                        {filteredValue()?.filter((value) => {
-                            if (searchValue === "") {
-                                return value
-                            } else if (value.strategyName?.toLowercase().includes(searchValue?.toLowerCase().trim())) {
-                                return value
-                            }
-                        })?.map((v, i) =>
-                            <div
-                                style={{ marginTop: 20 }}
-                                key={i}
-                                className='algo-cards-mart main_card_panel'
-                            >
+                {!empty ? (
+                    <div className='card-div-Algo-trading right_panel scroll_class'>
+                        {filteredCards?.map((v, i) => (
+                            <div style={{ marginTop: 20 }} key={i} className='algo-cards-mart main_card_panel'>
                                 <Card
                                     sx={{ boxShadow: 0 }}
                                     onClick={() => {
-                                        getAlgoInfoPageData(v?._id, userActions)
-                                        setMartPage()
-                                        history?.push('/')
-                                        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }, 300)
-                                    }
-                                    }
-                                    key={i} className='pointerForCard'>
+                                        getAlgoInfoPageData(v?._id, userActions);
+                                        setMartPage();
+                                        history?.push('/');
+                                        setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }) }, 300);
+                                    }}
+                                    className='pointerForCard'
+                                >
                                     <CardMedia
                                         component='img'
                                         height='140'
@@ -440,27 +391,17 @@ const GeoFocus = () => {
                                         alt='green iguana'
                                     />
                                     <div className='avatarContainer'>
-                                        <Avatar alt='Travis Howard'
-                                            src={CardsData[i]?.img}
-                                            image={CardsData[i]?.img || CardsData[0]?.img}
+                                        <Avatar
+                                            alt='Travis Howard'
+                                            src={CardsData[i]?.img || CardsData[0]?.img}
                                         />
                                     </div>
                                     <CardContent>
                                         <div>
-                                            <Typography
-                                                gutterBottom
-                                                variant='h4'
-                                                component='div'
-                                                className='cards-head'
-                                            >
+                                            <Typography gutterBottom variant='h4' component='div' className='cards-head'>
                                                 <b>{v?.strategyName}</b>
                                             </Typography>
-                                            <Typography
-                                                gutterBottom
-                                                variant='body1'
-                                                component="div"
-                                                className='cards-typography'
-                                            >
+                                            <Typography gutterBottom component='div' variant='body1' className='cards-typography'>
                                                 <p style={{ marginBottom: '5px', fontSize: '11px' }} className='bold'>live performance</p>
                                                 <p style={{ display: 'flex', justifyContent: 'space-between' }} className='bold'>
                                                     <span style={{ backgroundColor: '#ddd7d7', padding: '3px', borderRadius: '3px' }}>↓ {'0.94%'}</span>
@@ -474,21 +415,20 @@ const GeoFocus = () => {
                                         </div>
                                     </CardContent>
                                 </Card>
-                                <div className='overlay_card_panel_mart'>
-                                    <div className='text'>SUBSCRIBE NOW</div>
+                                <div className="overlay_card_panel_mart">
+                                    <div className="text">SUBSCRIBE NOW</div>
                                 </div>
                             </div>
-                        )}
-                    </div> :
+                        ))}
+                    </div>
+                ) : (
                     <div className='empty_div'>
                         <Empty />
                     </div>
-                }
+                )}
             </div>
             <div style={{ marginLeft: '50px', marginRight: '30px' }}>
-                <h3 className='bold'>
-                    Forum
-                </h3>
+                <h3 className='bold'>Forum</h3>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <div className='forum_panel'>
                         <h4 className='bold'>Anyone know about Aggressive Global Income strategy?</h4>
@@ -503,11 +443,13 @@ const GeoFocus = () => {
                 </div>
             </div>
         </div>
-    )
+    );
+};
 
-}
+GeoFocus.propTypes = {
+    history: PropTypes.object.isRequired,
+    setMartPage: PropTypes.func.isRequired,
+    userActions: PropTypes.object.isRequired,
+};
 
-
-
-
-export default GeoFocus
+export default GeoFocus;

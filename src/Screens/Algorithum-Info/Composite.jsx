@@ -2,7 +2,6 @@ import React from 'react'
 import CompositeGraph from './CompositeGraph'
 import CompositeTable1 from './CompositeTable1'
 import CompositeTable2 from './CompositeTable2'
-import CompositeTable3 from './CompositeTable3'
 
 const Composite = () => {
   return (

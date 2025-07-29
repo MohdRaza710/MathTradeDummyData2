@@ -1,35 +1,61 @@
-import React, { useState } from 'react'
+import CircleIcon from '@mui/icons-material/Circle'
 import Paper from '@mui/material/Paper'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
-import TableRow from '@mui/material/TableRow'
+import TableRow from '@mui/material/TableRow'   
+import React, { useState } from 'react'
 
 const PrincipleTable = () => {
+    const [page, setPage] = React.useState(0)
+    const [rowsPerPage, setRowsPerPage] = React.useState(2)
+    const [changeButtonVarinat1, setChangeButtonVarinat1] = useState(false)
+    const [changeButtonVarinat2, setChangeButtonVarinat2] = useState(false)
 
-    const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString();
+    const handleChangePage = (event, newPage) => {
+        setPage(newPage)
+    }
 
-    function createData(name, DateTime, HistoricalGraph, AverageDailyReturn, Volatility, WinRate, AnnualReturn, SharpRatio) {
-        return
-        { name, DateTime, HistoricalGraph, AverageDailyReturn, Volatility, WinRate, AnnualReturn, SharpRatio }
+    const handleChangeRowsPerPage = (event) => {
+        setRowsPerPage(+event.target.value)
+        setPage(0)
     }
 
 
+    function createData(
+        name,
+        DateTime,
+        HistoricalGraph,
+        AverageDailyReturn,
+        Volatility,
+        WinRate,
+        AnnualReturn,
+        SharpRatio
+    ) {
+        return { name, DateTime, HistoricalGraph, AverageDailyReturn, Volatility, WinRate, AnnualReturn, SharpRatio }
+    }
+    const date = new Date()
 
+    const sell = () => {
+
+    }
+    const buy = () => {
+        setChangeButtonVarinat1(true)
+    }
     const rows = [
         createData(
             'Ultimate Buy and Hold Strategy',
-            { date, time },
+            '15:00 08/10/20',
             'Display',
             10.5,
             79.6,
             17.8,
             7.8,
             0.98
-        )
+        ),
+
     ]
 
     return (
@@ -43,7 +69,7 @@ const PrincipleTable = () => {
                 <TableHead>
                     <TableRow>
                         <TableCell className='table_header' align='center'>Name</TableCell>
-                        <TableCell className='table_header' align='center'>Date/TIme</TableCell>
+                        <TableCell className='table_header' align='center'>Date/Time</TableCell>
                         <TableCell className='table_header' align='center'>Historical Graph</TableCell>
                         <TableCell className='table_header' align='center'>Average Daily Return</TableCell>
                         <TableCell className='table_header' align='center'>Volatility</TableCell>
@@ -52,27 +78,42 @@ const PrincipleTable = () => {
                         <TableCell className='table_header' align='center'>Sharp Ratio</TableCell>
                     </TableRow>
                 </TableHead>
-
                 <TableBody>
-                    {rows.map((row) => {
+                    {rows.map((row) => (
                         <TableRow
-                        key={row.name}
-                        sx={{ '&:last-child td, &:last-child th': { border: 0 }, fontSize: 15 }}
+                            key={row.name}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 }, fontSize: 15/* width: 100  */ }}
                         >
-                            <TableCell component="th" scope='row' className='table_cell'>{row.name}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.DateTime}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.HistoricalGraph}</TableCell>
-                            <TableCell align='center' className='table_cell'>${row.AverageDailyReturn}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.Volatility}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.WinRate}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.AnnualReturn}</TableCell>
-                            <TableCell align='center' className='table_cell'>{row.SharpRatio}</TableCell>
+                            <TableCell component='th' scope='row' className=' table_cell'>
+                                {row.name}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.DateTime}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.HistoricalGraph}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                ${row.AverageDailyReturn}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.Volatility}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.WinRate}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.AnnualReturn}
+                            </TableCell>
+                            <TableCell align='center' className='table_cell'>
+                                {row.SharpRatio}
+                            </TableCell>
+
                         </TableRow>
-                    })}
+                    ))}
                 </TableBody>
             </Table>
         </TableContainer>
     )
 }
-
 export default PrincipleTable

@@ -43,21 +43,22 @@ const rows = [
 const TopGainerTable = () => {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label='customized-table'>
+      <Table sx={{ minWidth: 600 }} aria-label='customized-table'>
         <TableHead>
           <TableRow>
-            <StyledTableCell>Algorithum</StyledTableCell>
-            <StyledTableCell align='right'>NLV</StyledTableCell>
-            <StyledTableCell align='right'>YTD Sharpe</StyledTableCell>
-            <StyledTableCell align='right'>5yr Sharpe</StyledTableCell>
-            <StyledTableCell align='right'>YTD Return</StyledTableCell>
-            <StyledTableCell align='right'>5yr return</StyledTableCell>
-            <StyledTableCell align='right'>Margin Ratio</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}}>Algorithum</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>NLV</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>YTD Sharpe</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>5yr Sharpe</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>YTD Return</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>5yr return</StyledTableCell>
+            <StyledTableCell sx={{fontSize: 14}} align='right'>Margin Ratio</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => {
-            <StyledTableRow>
+            return (
+            <StyledTableRow key={row.name}>
               <StyledTableCell component="th" scope='row'>
                 {row.name}
               </StyledTableCell>
@@ -68,7 +69,7 @@ const TopGainerTable = () => {
               <StyledTableCell align='right'>{row.fiveYearReturn}</StyledTableCell>
               <StyledTableCell align='right'>{row.marginRatio}</StyledTableCell>
             </StyledTableRow>
-          })}
+          )})}
         </TableBody>
       </Table>
     </TableContainer>

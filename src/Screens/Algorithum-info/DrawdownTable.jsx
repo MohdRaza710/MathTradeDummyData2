@@ -58,7 +58,7 @@ const DrawdownTable = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {drawiDownTableData?.map((row,i) => (
+                    {drawDownTableData?.map((row,i) => (
                         <TableRow
                         key={i}
                         sx={{'&:last-child td, &:last-child th' : {border: 0}, fontSize: 15}}
@@ -94,4 +94,4 @@ const DrawdownTable = () => {
     )
 }
 
-export default DrawdownTablecommand
+export default DrawdownTable

@@ -5,14 +5,14 @@ import HistoricalReturnTable from './HistoricalReturnTable'
 import OverviewTable from './OverviewTable'
 import PortfolioEfficiency from './PortfolioEfficiency'
 import PrincipleTable2 from './PrincipleTable2'
-import RollingReturnsTable from './RollingReturnsTable'
-import TradelogTable from './TradeLogTable'
+import RollingReturnsTable from './RollingReturnTable' // Corrected casing
+import TradelogTable from './TradelogTable'
 import UpdatedTopBar from './UpdatedTopBar'
 import DrawDownGraph from './Graphss/DrawDownGraph'
 import RollingReturnsGraph from './Graphss/RollingReturnGraph'
 
 const AlgorithumUpdated = (props) => {
-    const { inlineCollapsed, myState, setMyStat } = props
+    const { inlineCollapsed, myState, setMyState } = props
 
     useEffect(() => { }, [inlineCollapsed])
 
@@ -131,17 +131,17 @@ const AlgorithumUpdated = (props) => {
                     <UpdatedTopBar />
                 </div>
             </div>
-            <div>
+            <div className='historical-related'>
 
                 <div className='historical-graph-main'>
-                    <HistoricalGraph myState={myState} setMystate={setMystate} {...props} />
+                    <HistoricalGraph myState={myState} setMystate={setMyState} {...props} />
                 </div>
 
                 <div className='related-constituent-stock'>
                     <div className='historical-graph-header'>
                         Related Constituent Stock
                     </div>
-                    <PrincipleTable2 columns={columns1} dataSource={data} {...props} />
+                    <PrincipleTable2 columns={columns1} dataSource={dataSource1} {...props} />
                 </div>
             </div>
             <div className='OverviewTable'>

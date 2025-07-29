@@ -1,6 +1,6 @@
 import { Button } from '@mui/material'
 import { useEffect, useState } from 'react'
-import ReactApexChart from 'apexcharts'
+import ReactApexChart from 'react-apexcharts'
 import portfolioPerformanceGraph from '../../dummyData/portfolioPerformanceGraph.json'
 
 const Graph = (props) => {

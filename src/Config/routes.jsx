@@ -1,22 +1,24 @@
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-import { Portfolio } from '../Screens'
-import allPaths from './paths'
-// import Page404 from '../Screens/Page404'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Portfolio, PortfolioNew, ContactUs, FundManagement, GeoFocus, AlgorithmNew } from '../Screens';
+import allPaths from './paths';
+import MenuLayout from '../Components/MenuLayout/MenuLayout'; // Import your MenuLayout component
 
 const AppRoutes = () => {
     return (
         <Router>
             <Routes>
-                <Route path={allPaths.PORTFOLIO} element={<Portfolio />} />
-                {/* <Route path={allPaths.CONTACT} element={<ContactUs />} /> */}
-                {/* <Route path={allPaths.FUND_MANAGEMENT} element={<FundManagement />} /> */}
-                {/* <Route path={allPaths.PORTFOLIO_NEW} element={<PortfolioNew />} /> */}
-                {/* <Route path={allPaths.GEO_FOCUS} element={<GeoFocus />} /> */}
-                {/* <Route path="*" element={<Page404 />} /> */}
+                {/* Wrap all routes that should show the menu with MenuLayout */}
+                <Route Component={MenuLayout}>
+                    <Route path={allPaths.HOME} element={<Portfolio />} />
+                    <Route path={allPaths.PORTFOLIO} element={<PortfolioNew />} />
+                    <Route path={allPaths.CONTACT} element={<ContactUs />} />
+                    <Route path={allPaths.FUNDMANAGEMENT} element={<FundManagement />} />
+                    <Route path={allPaths.GEO_FOCUS} element={<GeoFocus />} />
+                    <Route path={allPaths.ALGORITHM_INFO} element={<AlgorithmNew />} />
+                </Route>
             </Routes>
         </Router>
-    )
-}
+    );
+};
 
-export { AppRoutes }
-
+export { AppRoutes };

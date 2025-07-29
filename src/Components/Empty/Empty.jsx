@@ -12,22 +12,14 @@ const Empty = ({ message = "No data" }) => {
       padding={4}
       height="300px"
       color="text.secondary"
-      border="1px dashed lightgray"
-      borderRadius={2}
-      bgcolor="#fafafa"
+      // border="1px dashed lightgray"
+      // borderRadius={2}
+      // bgcolor="#fafafa"
     >
-      <InsertDriveFileIcon sx={{ fontSize: 64, mb: 1 }} />
-      <Typography variant="body1">{message}</Typography>
+      <InsertDriveFileIcon sx={{ fontSize: 100, mb: 1 }} />
+      <Typography sx={{fontSize: 18, fontWeight: 'bold'}} variant="body1">{message}</Typography>
     </Box>
   );
 };
 
-export default function App() {
-  const items = [];
-
-  return (
-    <div style={{ padding: 32 }}>
-      {items.length === 0 ? <Empty message="No Data" /> : <div></div>}
-    </div>
-  );
-}
+export default Empty;

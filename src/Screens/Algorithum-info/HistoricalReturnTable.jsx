@@ -1,11 +1,11 @@
 import React from 'react'
 import { Paper } from '@mui/material'
-import Table from '@mui/material'
-import TableBody from '@mui/material'
-import TableCell from '@mui/material'
-import TableContainer from '@mui/material'
-import TableHead from '@mui/material'
-import TableRow from '@mui/material'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
 import historicalReturnTableData from '../../dummyData/historicalReturnTableData.json'
 
 const HistoricalReturnTable = () => {
@@ -13,11 +13,11 @@ const HistoricalReturnTable = () => {
     return (
         <>
             <div className='compostie-top-text'>
-                <h3 className='composite-heading'>Historical Returns as of May 31,2022</h3>
-                Historical returns and state of <b>High Yeild Bonds Income Portfolio</b> Total Return and Inflation Adjusted Returns are both mentioned
-            </div>
+                <h3 className='composite-heading'>Historical Returns as of May 31, 2022</h3>
+                Historical returns and state of <b>High Yield Bonds Income Portfolio</b> Total Return and Inflation Adjusted Returns are both mentioned
+            </div> 
             <div className='composite-center-content composite-heading'>
-                <p><h2>HIGH YEILD BONDS INCOME DIVIDEND YIELDS (%)</h2></p>
+                <h2>HIGH YEILD BONDS INCOME DIVIDEND YIELDS (%)</h2>
             </div>
             <div className='composite-center-content'>
                 <p>Consolidated returns as of 31 May 2022</p>

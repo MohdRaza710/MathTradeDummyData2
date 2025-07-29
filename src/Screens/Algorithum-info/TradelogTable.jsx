@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import tradeLogData from '../../dummyData/tradeLogData'
-const TradelogTable = (props) => {
+const TradelogTable = () => {
   const tradeLogTable = tradeLogData
   return (
     <div>

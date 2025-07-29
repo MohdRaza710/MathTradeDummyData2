@@ -35,7 +35,7 @@ const OverviewPortfolio = (props) => {
     const [showUltimate, setShowUltimate] = useState(false)
     const [showEndowent, setShowEndowent] = useState(false)
     const [showHarryPortfolio, setShowharryPortfolio] = useState(false)
-    const [myState, setMyState] = useState(useSelector((state) => state?.userReducer?.historicalGraph || []))
+    const [myState, setMystate] = useState(useSelector((state) => state?.userReducer?.historicalGraph || []))
     const [value, setValue] = useState("")
     const titleRef = useRef()
 
@@ -129,10 +129,10 @@ const OverviewPortfolio = (props) => {
                                                             {v?.row}
                                                         </StyledTableCell>
                                                         <StyledTableCell align='right'>
-                                                            <Checkbox 
-                                                            color='primary'
-                                                            checked={v.state}
-                                                            onChange={(e) => v.set(e?.target?.checked)}
+                                                            <Checkbox
+                                                                color='primary'
+                                                                checked={v.state}
+                                                                onChange={(e) => v.set(e?.target?.checked)}
                                                             />
                                                         </StyledTableCell>
                                                     </StyledTableRow>
@@ -145,7 +145,7 @@ const OverviewPortfolio = (props) => {
                         </div>
 
                         <div className='portfolio-table-main-div'>
-                            
+
                             <div className='portfolio-top-gainer'>
                                 <div className='portfolio-graph-header'>
                                     Top Gainer
@@ -161,17 +161,18 @@ const OverviewPortfolio = (props) => {
                         </div>
 
                         <div>
-                            <AlgotradingCard myState={myState} setMyState={setMyState} titleRef={titleRef} {...props} />
+                            <AlgotradingCard myState={myState} setMyState={setMystate} titleRef={titleRef} {...props} />
                         </div>
                         <div>
                             <MathTrade titleRef={titleRef} {...props} />
                         </div>
                     </div>
-                </> :
+                </> 
+                :
                 <>
-                    
+                
                 </>
-    }
+            }
         </>
     )
 
