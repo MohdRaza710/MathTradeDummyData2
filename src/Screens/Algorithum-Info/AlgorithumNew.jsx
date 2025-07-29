@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import AlgorithmPrinciple from './AlgorithumPrinciple'
 import AlgorithmUpdated from './AlgorithumUpdated'
 import Compostie from './Composite'
-import Contract from './Contract'
+// import Contract from './Contract'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props
@@ -73,7 +73,7 @@ const AlgorithmNew = (props) => {
                             <Tab sx={{ fontSize: 13, fontWeight: 'bold' }} className='first-tab' label='Algorithm Information' {...a11yProps(0)} />
                             <Tab sx={{ fontSize: 13, fontWeight: 'bold' }} label='Algorithm Principle' {...a11yProps(1)} />
                             <Tab sx={{ fontSize: 13, fontWeight: 'bold' }} label='Composite' {...a11yProps(2)} />
-                            <Tab sx={{ fontSize: 13, fontWeight: 'bold' }} label='Contract' {...a11yProps(3)} />
+                            {/* <Tab sx={{ fontSize: 13, fontWeight: 'bold' }} label='Contract' {...a11yProps(3)} /> */}
                         </Tabs>
                     </Box>
                 </div>
@@ -91,9 +91,9 @@ const AlgorithmNew = (props) => {
                 <TabPanel value={value} index={2}>
                     <Compostie {...props} />
                 </TabPanel>
-                <TabPanel value={value} index={3}>
+                {/* <TabPanel value={value} index={3}>
                     <Contract {...props} />
-                </TabPanel>
+                </TabPanel> */}
             </div>
 
         </div>
