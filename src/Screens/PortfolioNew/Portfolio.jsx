@@ -11,7 +11,7 @@ import TableRow from '@mui/material/TableRow'
 import Graph from './Graph'
 // import ComositeGraph from '../Algorithum-Info/CompositeGraph'
 import CompositeTable from '../Algorithum-Info/CompositeTable1'
-import OverviewTable from '../Algorithum-Info/OverviewTable'
+// import OverviewTable from '../Algorithum-Info/OverviewTable'
 import WatchList from '../WatchList/WatchList'
 import Search from './Search'
 import SearchETF from './SearchETF'
@@ -204,7 +204,7 @@ const Portfolio = (props) => {
                 </div>
             </div>
             <div>
-                <OverviewTable />
+                {/* <OverviewTable /> */}
             </div>
             <div className='overview-portfolio-New' style={{ marginTop: '20px' }}>
                 <b> Composite </b>
