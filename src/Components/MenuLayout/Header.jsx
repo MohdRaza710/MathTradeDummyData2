@@ -9,7 +9,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { MoreVert } from '@mui/icons-material';
-import { bgColor } from '../../utils/constants'; // Ensure this path is correct
+import { bgColor } from '../../Utils/constants'; // Ensure this path is correct
 
 // Import useNavigate from react-router-dom
 import { useNavigate } from 'react-router-dom';
