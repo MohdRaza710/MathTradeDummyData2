@@ -201,4 +201,4 @@ const Contract = (props) => {
     )
 }
 
-export default Contract
+export default Contract;
