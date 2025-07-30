@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Graph from './Graph'
 // import ComositeGraph from '../Algorithum-Info/CompositeGraph'
-import CompositeTable from '../Algorithum-Info/CompositeTable1'
+// import CompositeTable from '../Algorithum-Info/CompositeTable1'
 // import OverviewTable from '../Algorithum-Info/OverviewTable'
 import WatchList from '../WatchList/WatchList'
 import Search from './Search'
@@ -214,7 +214,7 @@ const Portfolio = (props) => {
             </div>
 
             <div>
-                <CompositeTable />
+                {/* <CompositeTable /> */}
             </div>
 
             <div style={{ marginTop: 20 }} className='watch-list-page'>
