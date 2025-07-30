@@ -104,6 +104,7 @@ const OverviewPortfolioGraph = (props) => {
       let newData = graphData.series[0]?.data?.map(v => {
         return [v[0], ((v[1] + min) / 2).toFixed(2)]
       })
+
       setGraphData({ ...graphData, series: [...graphData.series, { data: newData, key: 'showUltimate' }] })
     }
     else {
@@ -118,10 +119,12 @@ const OverviewPortfolioGraph = (props) => {
       let newData = graphData.series[0]?.data?.map(v => {
         return [v[0], ((v[1] + max) / 2).toFixed(2)]
       })
-      setGraphData({ ...graphData, series: [...graphData.series, { data: newData, key: 'showEndowent' }] })
+
+      setGraphData({ ...graphData, series: [...graphData.series, { data: newData, key: 'showEndowment' }] })
     }
     else {
-      let series = graphData.series?.filter((v) => v.key !== 'showEndowent')
+      let series = graphData.series?.filter((v) => v.key !== 'showEndowment')
+      setGraphData({ ...graphData, series })
     }
   }, [showEndowent])
 
@@ -132,10 +135,12 @@ const OverviewPortfolioGraph = (props) => {
       let newData = graphData.series[0]?.data?.map(v => {
         return [v[0], ((v[1] + mean) / 2).toFixed(2)]
       })
+
       setGraphData({ ...graphData, series: [...graphData.series, { data: newData, key: 'showHarryPortfolio' }] })
     }
     else {
       let series = graphData.series?.filter((v) => v.key !== 'showHarryPortfolio')
+      setGraphData({ ...graphData, series })
     }
   }, [showHarryPortfolio])
 
