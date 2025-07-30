@@ -2,6 +2,7 @@ import { Button } from '@mui/material'
 import { useEffect, useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
 import portfolioPerformanceGraph from '../../dummyData/portfolioPerformanceGraph.json'
+import _ from 'lodash'
 
 const Graph = (props) => {
     const { showUltimate, showEndowment, showHarryPortfolio, show5000, showSDW, showSLV, userActions } = props
