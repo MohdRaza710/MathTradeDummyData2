@@ -12,8 +12,8 @@ import _, { uniqueId } from 'lodash'
 import { useEffect, useState } from 'react'
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
-import Search from '../PortfolioNew/Search'
-import SearchETF from '../PortfolioNew/SearchETF'
+import Search from '../PortfolioNew/Search.jsx'
+import SearchETF from '../PortfolioNew/SearchETF.jsx'
 import historicalDummyData from '../../dummyData/historicalDummyData.json'
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {

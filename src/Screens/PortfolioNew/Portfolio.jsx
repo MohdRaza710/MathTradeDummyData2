@@ -8,13 +8,13 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import Graph from './Graph'
-// import ComositeGraph from '../Algorithum-Info/CompositeGraph'
-// import CompositeTable from '../Algorithum-Info/CompositeTable1'
-// import OverviewTable from '../Algorithum-Info/OverviewTable'
-import WatchList from '../WatchList/WatchList'
-import Search from './Search'
-import SearchETF from './SearchETF'
+import Graph from './Graph.jsx'
+import ComositeGraph from '../Algorithum-Info/CompositeGraph.jsx'
+import CompositeTable from '../Algorithum-Info/CompositeTable1.jsx'
+import OverviewTable from '../Algorithum-Info/OverviewTable.jsx'
+import WatchList from '../WatchList/WatchList.jsx'
+import Search from './Search.jsx'
+import SearchETF from './SearchETF.jsx'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -204,17 +204,17 @@ const Portfolio = (props) => {
                 </div>
             </div>
             <div>
-                {/* <OverviewTable /> */}
+                <OverviewTable />
             </div>
             <div className='overview-portfolio-New' style={{ marginTop: '20px' }}>
                 <b> Composite </b>
             </div>
             <div className='portfolio-garph' >
-                {/* <ComositeGraph /> */}
+                <ComositeGraph />
             </div>
 
             <div>
-                {/* <CompositeTable /> */}
+                <CompositeTable />
             </div>
 
             <div style={{ marginTop: 20 }} className='watch-list-page'>

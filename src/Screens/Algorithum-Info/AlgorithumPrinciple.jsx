@@ -1,10 +1,10 @@
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
 import Avatar from '@mui/material/Avatar'
 import word from '../../assets/word.png'
-import PrincipleBehindPdf from './PrincipleBehindPdf'
-import PrincipleTable from './PrincipleTable'
+import PrincipleBehindPdf from './PrincipleBehindPdf.jsx'
+import PrincipleTable from './PrincipleTable.jsx'
 import Pdf from '../../assets/pdfs.png'
-import { pdfURL, wordURL } from '../../utils/constants'
+import { pdfURL, wordURL } from '../../Utils/constants'
 import fileDownload from 'js-file-download'
 import axios from 'axios'
 

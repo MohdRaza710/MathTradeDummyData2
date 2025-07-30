@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import IconButton from '@mui/material/IconButton'
-import { pdfURL } from '../../utils/constants'
+import { pdfURL } from '../../Utils/constants'
 
 export default function PrincipleBehindPdf(props) {
   const { inlineCollapsed } = props

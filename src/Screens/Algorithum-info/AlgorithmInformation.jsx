@@ -1,8 +1,8 @@
 import React from 'react'
-import HistoricalGraph from './HistoricalGraph'
-import PrincipleTable from './PrincipleTable'
-import PrincipleTable2 from './PrincipleTable2'
-import TradeLogTable from './TradelogTable'
+import HistoricalGraph from './HistoricalGraph.jsx'
+import PrincipleTable from './PrincipleTable.jsx'
+import PrincipleTable2 from './PrincipleTable2.jsx'
+import TradeLogTable from './TradelogTable.jsx'
 
 const columns1 = [
   {

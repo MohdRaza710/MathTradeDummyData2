@@ -1,7 +1,7 @@
-import Empty from './Empty/Empty'
-import MenuLayout from './MenuLayout/MenuLayout'
-import SideMenu from './SideMenu/SideMenu'
-import DropDownBtn from './DropDownButton/DropDownBtn'
+import Empty from './Empty/Empty.jsx'
+import MenuLayout from './MenuLayout/MenuLayout.jsx'
+import SideMenu from './SideMenu/SideMenu.jsx'
+import DropDownBtn from './DropDownButton/DropDownBtn.jsx'
 
 
 export {

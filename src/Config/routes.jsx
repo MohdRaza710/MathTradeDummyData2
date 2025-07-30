@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Portfolio, PortfolioNew, ContactUs, FundManagement, GeoFocus, AlgorithmNew } from '../Screens';
-import allPaths from './paths';
-import MenuLayout from '../Components/MenuLayout/MenuLayout'; // Import your MenuLayout component
+import allPaths from './paths.jsx';
+import MenuLayout from '../Components/MenuLayout/MenuLayout.jsx'; // Import your MenuLayout component
 
 const AppRoutes = () => {
     return (

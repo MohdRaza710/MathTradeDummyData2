@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from './Header'; 
+import Header from './Header.jsx'; 
 import { allPaths } from '../../Utils/constants'; 
 // setCollapsed import removed as it's no longer needed
 import { setShowAlgoPage } from '../../Redux/actions/generalActions'; 

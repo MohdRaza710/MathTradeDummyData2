@@ -3,10 +3,10 @@ import Box from '@mui/material/Box'
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import PropTypes from 'prop-types'
-import AlgorithmPrinciple from './AlgorithumPrinciple'
-import AlgorithmUpdated from './AlgorithumUpdated'
-import Compostie from './Composite'
-// import Contract from './Contract'
+import AlgorithmPrinciple from './AlgorithumPrinciple.jsx'
+import AlgorithmUpdated from './AlgorithumUpdated.jsx'
+import Compostie from './Composite.jsx'
+import Contract from './Contract.jsx'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props
@@ -91,9 +91,9 @@ const AlgorithmNew = (props) => {
                 <TabPanel value={value} index={2}>
                     <Compostie {...props} />
                 </TabPanel>
-                {/* <TabPanel value={value} index={3}>
+                <TabPanel value={value} index={3}>
                     <Contract {...props} />
-                </TabPanel> */}
+                </TabPanel>
             </div>
 
         </div>

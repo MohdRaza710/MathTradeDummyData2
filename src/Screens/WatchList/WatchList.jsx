@@ -19,8 +19,8 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-import SuggestionTable from './SuggestionTable'
-import TradeTable from './TradeTable'
+import SuggestionTable from './SuggestionTable.jsx'
+import TradeTable from './TradeTable.jsx'
 
 const WatchList = () => {
   const [page, setPage] = React.useState(0)

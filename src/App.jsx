@@ -4,8 +4,8 @@ import 'aos/dist/aos.css'
 import { pdfjs } from 'react-pdf'
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
 import './App.css'
-import { AppRoutes } from './Config/routes'
-import { store, persistor } from './Redux/store' // Import persistor
+import { AppRoutes } from './Config/routes.jsx'
+import { store, persistor } from './Redux/store.jsx' // Import persistor
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react' // Import PersistGate
 

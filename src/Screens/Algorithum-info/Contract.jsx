@@ -15,7 +15,7 @@ import Button from '@mui/material/Button'
 import TextareaAutosize from '@mui/material/TextareaAutosize'
 import { useState } from 'react'
 import DropDownBtn from '../../Components/DropDownButton/DropDownBtn'
-import { constructorArgument, contactCreationCode, deployedByteCode, swarmSource, textDes } from '../../utils/constants'
+import { constructorArgument, contactCreationCode, deployedByteCode, swarmSource, textDes } from '../../Utils/constants'
 
 const Contract = (props) => {
     const [abi, setABI] = useState(localStorage.getItem('abi') || textDes)

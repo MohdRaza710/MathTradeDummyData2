@@ -9,12 +9,12 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { useSelector } from 'react-redux'
-import AlgotradingCard from '../Algorithum/AlgoTradingCards'
-import BottomLoserTable from './BottomLoser'
-import OverviewPortfolioGraph from './OverviewPortfolioGraph'
-import TopGainerTable from './TopGainerTable'
-import Search from './Search'
-import MathTrade from './MathTrade'
+import AlgotradingCard from '../Algorithum/AlgoTradingCards.jsx'
+import BottomLoserTable from './BottomLoser.jsx'
+import OverviewPortfolioGraph from './OverviewPortfolioGraph.jsx'
+import TopGainerTable from './TopGainerTable.jsx'
+import Search from './Search.jsx'
+import MathTrade from './MathTrade.jsx'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {

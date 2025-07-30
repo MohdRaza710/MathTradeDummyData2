@@ -2,7 +2,7 @@ import uppimg2 from '../../assets/images (1).jpg'
 import uppimg1 from '../../assets/images.jpg'
 import lowimg1 from '../../assets/lowerimg1.jpg'
 import lowimg2 from '../../assets/lowerimg2.jpg'
-import AlgotradingCard from './AlgoTradingCards'
+import AlgotradingCard from './AlgoTradingCards.jsx'
 const Algorithm = (props) => {
   return (
     <div className='card-form'>

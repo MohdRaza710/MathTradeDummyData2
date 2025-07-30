@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Typography } from '@mui/material'
-import axios from 'axios'
-import { ALGOINFO } from '../../utils/apis'
 import { useSelector } from 'react-redux'
 const { Title } = Typography
 

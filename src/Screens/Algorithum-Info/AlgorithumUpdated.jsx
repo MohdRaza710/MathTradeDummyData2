@@ -1,15 +1,15 @@
 import { useEffect } from 'react'
-import DrawdownTable from './DrawdownTable'
-import HistoricalGraph from './HistoricalGraph'
-import HistoricalReturnTable from './HistoricalReturnTable'
-import OverviewTable from './OverviewTable'
-import PortfolioEfficiency from './PortfolioEfficiency'
-import PrincipleTable2 from './PrincipleTable2'
-import RollingReturnsTable from './RollingReturnTable' // Corrected casing
-import TradelogTable from './TradelogTable'
-import UpdatedTopBar from './UpdatedTopBar'
-import DrawDownGraph from './Graphss/DrawDownGraph'
-import RollingReturnsGraph from './Graphss/RollingReturnGraph'
+import DrawdownTable from './DrawdownTable.jsx'
+import HistoricalGraph from './HistoricalGraph.jsx'
+import HistoricalReturnTable from './HistoricalReturnTable.jsx'
+import OverviewTable from './OverviewTable.jsx'
+import PortfolioEfficiency from './PortfolioEfficiency.jsx'
+import PrincipleTable2 from './PrincipleTable2.jsx'
+import RollingReturnsTable from './RollingReturnTable.jsx' // Corrected casing
+import TradelogTable from './TradelogTable.jsx'
+import UpdatedTopBar from './UpdatedTopBar.jsx'
+import DrawDownGraph from './Graphss/DrawDownGraph.jsx'
+import RollingReturnsGraph from './Graphss/RollingReturnGraph.jsx'
 
 const AlgorithumUpdated = (props) => {
     const { inlineCollapsed, myState, setMyState } = props

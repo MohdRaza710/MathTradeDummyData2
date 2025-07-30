@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box, Tab, Tabs, Typography } from '@mui/material'
-import Deposite from './Deposite'
-import WithDraw from './WithDraw'
+import Deposite from './Deposite.jsx'
+import WithDraw from './WithDraw.jsx'
 import PropTypes from 'prop-types'
 
 function TabPanel(props) {

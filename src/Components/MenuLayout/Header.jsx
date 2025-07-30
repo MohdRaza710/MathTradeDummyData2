@@ -14,7 +14,7 @@ import { bgColor } from '../../Utils/constants'; // Ensure this path is correct
 // Import useNavigate from react-router-dom
 import { useNavigate } from 'react-router-dom';
 // Assuming allPaths is defined in a utility file, adjust path if needed
-import allPaths from '../../Config/paths'; // Adjust this path if your paths file is elsewhere
+import allPaths from '../../Config/paths.jsx'; // Adjust this path if your paths file is elsewhere
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
