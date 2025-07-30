@@ -3,10 +3,10 @@ import Box from '@mui/material/Box'
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
 import PropTypes from 'prop-types'
-import AlgorithmPrinciple from './AlgorithumPrinciple.jsx'
-import AlgorithmUpdated from './AlgorithumUpdated.jsx'
-import Compostie from './Composite.jsx'
-import Contract from './Contract.jsx'
+import AlgorithmPrinciple from '../Algorithum-Info/AlgorithumPrinciple.jsx'
+import AlgorithmUpdated from '../Algorithum-Info/AlgorithumUpdated.jsx'
+import Compostie from '../Algorithum-Info/Composite.jsx'
+import Contract from '../Algorithum-Info/Contract.jsx'
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props
