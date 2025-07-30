@@ -158,7 +158,7 @@ const HeaderAppBar = () => {
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
-                        <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search ticker name' }} />
+                        <StyledInputBase placeholder="Search Ticker Name..." inputProps={{ 'aria-label': 'search ticker name' }} />
                     </Search>
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex', gap: '1em' } }}>
