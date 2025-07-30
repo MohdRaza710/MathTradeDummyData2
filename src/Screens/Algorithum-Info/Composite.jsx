@@ -1,6 +1,6 @@
 import React from 'react'
 import CompositeGraph from './CompositeGraph'
-import CompositeTable1 from './CompositeTable1'
+// import CompositeTable1 from './CompositeTable1'
 import CompositeTable2 from './CompositeTable2'
 
 const Composite = () => {
@@ -17,7 +17,7 @@ const Composite = () => {
         The <b>High Yeild Bonds Income Portfolio</b> can be implemented with following asset allocation
       </div>
       <div className='compostie-table-1'>
-        <CompositeTable1 />
+        {/* <CompositeTable1 /> */}
       </div>
       <div className='composite-center-content composite-heading'>
         <b>HIGH YEILD BONDS INCOME PORTFOLIO RETURNS</b>
