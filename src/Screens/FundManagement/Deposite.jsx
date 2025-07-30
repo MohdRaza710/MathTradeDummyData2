@@ -39,14 +39,14 @@ const Deposite = () => {
                             {blueDot} {" "} Cash/Cheque <br />
                             (at Bank Counters)
                         </div>
-                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 147 }}>To see instruction</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12,}}>To see instruction</Button></div>
                     </div>
 
                     <div clasName='deposite-btn-content'>
                         <div>
                             {blueDot} {" "} Online PPS
                         </div>
-                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 149, marginBottom: 2 }}>To pay instantly</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12,}}>To pay instantly</Button></div>
                     </div>
                 </Card>
             </div>
@@ -62,7 +62,7 @@ const Deposite = () => {
                         <div>
                             {blueDot} {" "} Bank Draft
                         </div>
-                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 147 }}>To see instruction</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12,}}>To see instruction</Button></div>
                     </div>
                     <p>
                         {blueDot} {" "} Visa card / Master card / UnionPay card <br />
@@ -73,7 +73,7 @@ const Deposite = () => {
                             {blueDot} {" "} Flywire <br />
                             (may use Alipay, Visa card, Master card, UnionPay card, etc.)
                         </div>
-                        <div><Button type='primary' sx={{ fontSize: 12, marginLeft: 149, marginBottom: 2 }}>To pay instantly</Button></div>
+                        <div><Button type='primary' sx={{ fontSize: 12, marginBottom: 2 }}>To pay instantly</Button></div>
                     </div>
                 </Card>
             </div>

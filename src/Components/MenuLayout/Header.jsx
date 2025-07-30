@@ -23,8 +23,8 @@ const Search = styled('div')(({ theme }) => ({
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    '& .css-1kcggdq-MuiInputBase-root .MuiInputBase-input': { 
-        width: '20em' 
+    '& .css-1kcggdq-MuiInputBase-root .MuiInputBase-input': {
+        width: '20em'
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -91,32 +91,6 @@ const HeaderAppBar = () => {
         handleMenuClose(); // Close the menu after navigation
     };
 
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-            anchorEl={anchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={menuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-        >
-            <MenuItem onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
-            <MenuItem onClick={() => handleNavigation(allPaths.ALGORITHM_INFO)}>Algorithm Info</MenuItem>
-            {/* Assuming you have an ALGO_MART path or use a direct string */}
-            <MenuItem onClick={() => handleNavigation(allPaths.ALGO_MART || '/algo-mart')}>Algo Mart</MenuItem> 
-            <MenuItem onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem> {/* Keep existing profile link */}
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
 
     const mobileMenuId = 'primary-search-account-menu-mobile';
     const renderMobileMenu = (
@@ -136,14 +110,10 @@ const HeaderAppBar = () => {
             onClose={handleMobileMenuClose}
         >
             {/* Add navigation items to mobile menu as well if desired */}
-            <MenuItem onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
-            <MenuItem onClick={() => handleNavigation(allPaths.ALGORITHM_INFO)}>Algorithm Info</MenuItem>
-            <MenuItem onClick={() => handleNavigation(allPaths.ALGO_MART || '/algo-mart')}>Algo Mart</MenuItem>
-            <MenuItem onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
-            <MenuItem onClick={handleProfileMenuOpen}>
-                <AccountCircle />
-                <p>Profile</p>
-            </MenuItem>
+            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)}>Funds</MenuItem>
+            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
+            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.GEO_FOCUS)}>Mart</MenuItem>
+            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
         </Menu>
     );
 
@@ -163,11 +133,11 @@ const HeaderAppBar = () => {
                     <Box sx={{ flexGrow: 1 }} />
                     <Box sx={{ display: { xs: 'none', md: 'flex', gap: '1em' } }}>
                         {/* Add main navigation links directly here for desktop view */}
-                        <MenuItem  style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)}>Funds</MenuItem>
-                        <MenuItem style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
+                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)}>Funds</MenuItem>
+                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
                         {/* <MenuItem style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.ALGORITHM_INFO)}>Algorithm Info</MenuItem> */}
-                        <MenuItem style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.GEO_FOCUS)}>Mart</MenuItem>
-                        <MenuItem style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
+                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.GEO_FOCUS)}>Mart</MenuItem>
+                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <MenuItem onClick={handleMobileMenuOpen}>
@@ -177,7 +147,6 @@ const HeaderAppBar = () => {
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}
-            {renderMenu}
         </Box>
     );
 };
