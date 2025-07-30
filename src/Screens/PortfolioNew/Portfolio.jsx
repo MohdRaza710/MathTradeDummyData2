@@ -9,7 +9,7 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Graph from './Graph'
-import ComositeGraph from '../Algorithum-Info/CompositeGraph'
+// import ComositeGraph from '../Algorithum-Info/CompositeGraph'
 import CompositeTable from '../Algorithum-Info/CompositeTable1'
 import OverviewTable from '../Algorithum-Info/OverviewTable'
 import WatchList from '../WatchList/WatchList'
@@ -210,7 +210,7 @@ const Portfolio = (props) => {
                 <b> Composite </b>
             </div>
             <div className='portfolio-garph' >
-                <ComositeGraph />
+                {/* <ComositeGraph /> */}
             </div>
 
             <div>
