@@ -1,37 +1,35 @@
-import { useState } from 'react';
-import { Menu, MenuItem } from '@mui/material';
+import { MenuItem } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import { AccountCircle } from '@mui/icons-material';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
-import { MoreVert } from '@mui/icons-material';
-import { bgColor } from '../../Utils/constants'; // Ensure this path is correct
+import SideMenu from '../SideMenu/SideMenu.jsx'
+import { bgColor } from '../../Utils/constants';
+import allPaths from '../../Config/paths.jsx';
 
-// Import useNavigate from react-router-dom
 import { useNavigate } from 'react-router-dom';
-// Assuming allPaths is defined in a utility file, adjust path if needed
-import allPaths from '../../Config/paths.jsx'; // Adjust this path if your paths file is elsewhere
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
-    borderRadius: '1em',
+    borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
         backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    '& .css-1kcggdq-MuiInputBase-root .MuiInputBase-input': {
-        width: '20em'
-    },
+    // Adjusted flexGrow for better spacing on smaller screens
+    flexGrow: 0.5, // Further reduced to give more space to MATHTRADE on xs screens
     marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: '100%',
     [theme.breakpoints.up('sm')]: {
         marginLeft: theme.spacing(3),
         width: 'auto',
+        flexGrow: 0.5,
+    },
+    [theme.breakpoints.up('md')]: {
+        flexGrow: 0.3,
     },
 }));
 
@@ -47,6 +45,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
+    width: '100%',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -59,94 +58,68 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const HeaderAppBar = () => {
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
-    // Initialize useNavigate hook
     const navigate = useNavigate();
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
-
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
-
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
-
-    // Function to handle navigation
     const handleNavigation = (path) => {
         navigate(path);
-        handleMenuClose(); // Close the menu after navigation
+        // Assuming handleMenuClose is defined elsewhere or not strictly needed here
+        // handleMenuClose();
     };
 
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-            anchorEl={mobileMoreAnchorEl}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            id={mobileMenuId}
-            keepMounted
-            transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-            }}
-            open={isMobileMenuOpen}
-            onClose={handleMobileMenuClose}
-        >
-            {/* Add navigation items to mobile menu as well if desired */}
-            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)}>Funds</MenuItem>
-            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
-            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.GEO_FOCUS)}>Mart</MenuItem>
-            <MenuItem style={{ fontSize: 12 }} onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
-        </Menu>
-    );
-
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static" sx={{ background: bgColor }}>
-                <Toolbar>
-                    <Typography className='mui-size logoHeading' onClick={() => handleNavigation(allPaths.HOME)} variant="h6" noWrap component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box sx={{ flexGrow: 1 }} className="w-full">
+            <AppBar sx={{ background: bgColor }} position="static" className="bg-slate-900 rounded-b-lg shadow-lg">
+                <Toolbar className="flex justify-between items-center px-4 py-2 sm:px-6">
+                    <Typography
+                        className='text-white text-xl font-bold cursor-pointer mr-4 flex-shrink-0 logoHeading '
+                        onClick={() => handleNavigation(allPaths.HOME)}
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{
+                            display: { xs: 'flex', sm: 'block' },
+                            cursor: 'pointer',
+                            minWidth: '120px', // Ensures MATHTRADE has enough minimum width
+                            fontSize: '1.5rem',
+                        }}
+                    >
                         MATHTRADE
                     </Typography>
-                    <Search>
+
+                    <Search className="flex-grow max-w-xs sm:max-w-sm md:max-w-md">
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
-                        <StyledInputBase placeholder="Search Ticker Name..." inputProps={{ 'aria-label': 'search ticker name' }} />
+                        <StyledInputBase
+                            placeholder="Search Ticker Name..."
+                            inputProps={{ 'aria-label': 'search ticker name' }}
+                            className="w-full"
+                        />
                     </Search>
-                    <Box sx={{ flexGrow: 1 }} />
-                    <Box sx={{ display: { xs: 'none', md: 'flex', gap: '1em' } }}>
-                        {/* Add main navigation links directly here for desktop view */}
-                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)}>Funds</MenuItem>
-                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.PORTFOLIO)}>Portfolio</MenuItem>
-                        {/* <MenuItem style={{fontSize: 15}} onClick={() => handleNavigation(allPaths.ALGORITHM_INFO)}>Algorithm Info</MenuItem> */}
-                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.GEO_FOCUS)}>Mart</MenuItem>
-                        <MenuItem style={{ fontSize: 15 }} onClick={() => handleNavigation(allPaths.CONTACT)}>Contact Us</MenuItem>
-                    </Box>
-                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                        <MenuItem onClick={handleMobileMenuOpen}>
-                            <MoreVert />
+
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} />
+
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '1rem' }} className="items-center">
+                        <MenuItem onClick={() => handleNavigation(allPaths.FUNDMANAGEMENT)} className="rounded-md">
+                            <Typography variant="body2" className="text-white text-base font-medium hover:text-blue-300">Funds</Typography>
                         </MenuItem>
+                        <MenuItem onClick={() => handleNavigation(allPaths.PORTFOLIO)} className="rounded-md">
+                            <Typography variant="body2" className="text-white text-base font-medium hover:text-blue-300">Portfolio</Typography>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleNavigation(allPaths.GEO_FOCUS)} className="rounded-md">
+                            <Typography variant="body2" className="text-white text-base font-medium hover:text-blue-300">Mart</Typography>
+                        </MenuItem>
+                        <MenuItem onClick={() => handleNavigation(allPaths.CONTACT)} className="rounded-md">
+                            <Typography variant="body2" className="text-white text-base font-medium hover:text-blue-300">Contact Us</Typography>
+                        </MenuItem>
+                    </Box>
+
+                    <Box sx={{ display: { xs: 'flex', md: 'none' } }} className="flex-shrink-0">
+                        <SideMenu />
                     </Box>
                 </Toolbar>
             </AppBar>
-            {renderMobileMenu}
         </Box>
     );
 };

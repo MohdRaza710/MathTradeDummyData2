@@ -31,7 +31,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const OverviewPortfolio = (props) => {
     const { martPage } = props
-    let [widthm, setwidth] = useState(window.innerWidth <= 340 ? window.innerWidth - 91 : window.innerWidth <= 500 ? window.innerWidth - 90 : window.innerWidth - 137)
+    let [width, setwidth] = useState(window.innerWidth <= 340 ? window.innerWidth - 91 : window.innerWidth <= 500 ? window.innerWidth - 90 : window.innerWidth - 137)
     const [showUltimate, setShowUltimate] = useState(false)
     const [showEndowent, setShowEndowent] = useState(false)
     const [showHarryPortfolio, setShowharryPortfolio] = useState(false)
