@@ -1,84 +1,122 @@
-import React, { useState } from 'react'
-import Button from '@mui/material/Button'
-import LAPTOP from '../../assets/laptop.png'
-import MOBILE from '../../assets/Phone.png'
+import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+import LAPTOP from '../../assets/laptop.png';
+import MOBILE from '../../assets/Phone.png';
+import './MathTrade.css'
+// You would need to import a separate CSS file, e.g., import './MathTrade.css';
 
 const MathTrade = (props) => {
-    const { titleRef } = props
-    const mobile_1 = 'mobile_img'
-    const [img, setImg] = useState('mobile_img')
+    const { titleRef } = props;
+    // Note: 'mobile_img' and similar are assumed to be CSS classes
+    // that style the background or size of an image container.
+    const [img, setImg] = useState('mobile_img');
 
     const handleBackClick = () => {
-        titleRef?.current?.scrollIntoView({ behavior: 'smooth' })
-    }
+        titleRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
-        <div>
+        // Main container uses a class for layout consistency (e.g., max width and padding)
+        <div className="math-trade-container"> 
 
-            <div style={{ marginBottom: '100px', position: 'relative' }}>
-                <div className='mobile_img_top' style={{ position: 'absolute', top: '300px', right: 20 , paddingRight: '66px'}}>
-                    <img src={MOBILE} alt='Mobile' />
+            {/* --- Section 1: Hero/Introduction --- */}
+            <div className="section-1-hero">
+                
+                {/* Mobile Image Container - Absolute positioning is removed and managed by CSS class */}
+                <div className="mobile-image-wrapper">
+                    <img src={MOBILE} alt="Mobile" className="mobile-image" />
                 </div>
-                <div className='main_panel_math'>
-                    <div className='math_panel'>
+                
+                {/* Text and Buttons Container */}
+                <div className="hero-content">
+                    {/* Header Group */}
+                    <div className="header-group">
                         <h4 style={{ color: '#545454', letterSpacing: '3px' }}>Welcome to MATHTRADE</h4>
-                        <h2 className='smart_simple' style={{}}>Smart and Simple Trading for Everyone</h2>
+                        <h2 className="main-title">Smart and Simple Trading for Everyone</h2>
                         <h4 style={{ color: '#50967d', letterSpacing: '3px', fontStyle: 'italic' }}>Roboadvisor on Blockchain</h4>
                     </div>
-                    <div className='' style={{ display: 'flex', flex: '1', position: 'relative' }}>
-                        <div className='btn_explore_signup'>
-                            <Button size='medium' className='btn_math glow-on-hover' onClick={handleBackClick}>
-                                Explore
-                            </Button>
-                            <Button size='medium' className='btn_math glow-on-hover' >
-                                Sign Up
-                            </Button>
-                        </div>
+                    
+                    {/* Buttons Group */}
+                    <div className="buttons-group">
+                        <Button size='medium' onClick={handleBackClick} variant="contained" color="primary">
+                            Explore
+                        </Button>
+                        <Button size='medium' variant="outlined" color="primary">
+                            Sign Up
+                        </Button>
                     </div>
                 </div>
-                <div style={{ padding: '0px 4px 4px 76px', marginTop: '50px' }}>
-                    <h3 className='why_math_trade' >
-                        Why MATHTRADE ?
-                    </h3>
-                    <h2 style={{ letterSpacing: '3px', fontWeight: 'bold', marginTop: '30px', width: '50%' }}>
+
+                {/* Why MATHTRADE Section (Moved inside to be logically grouped or kept outside) */}
+                <div className="why-mathtrade-content">
+                    <h3 className="why-title">Why MATHTRADE ?</h3>
+                    
+                    <h2 className="algorithm-title">
                         Transaparent Algorithms
                     </h2>
-                    <div style={{ backgroundColor: '', padding: '10px' }}>
-                        <h4 className='blk_box_algo' style={{}}>
+                    
+                    <div className="algorithm-text">
+                        <h4>
                             no more paying for black box algorithms
                         </h4>
-                        <h4 className='math_info_algo' style={{}}>
+                        <h4>
                             Here in MATHTRADE, we provide thorough information of all the algorithms <b>for free even before you sign up</b> because we believe that our users have the right to know what they are relying on.
                         </h4>
                     </div>
                 </div>
             </div>
-            <div className='bg_blue'>
-                <img style={{ marginTop: '80px' }} src={LAPTOP} alt='Laptop' />
-                <div style={{ display: 'flex', flexDirection: 'column', marginTop: '300px', width: '600px' }}>
-                    <h3 className='font_20 font_18' style={{}}>
+            
+            <hr />
+
+            {/* --- Section 2: Laptop Image & Explore Content --- */}
+            <div className="section-2-laptop">
+                <img src={LAPTOP} alt='Laptop' className="laptop-image" />
+                
+                <div className="laptop-explore-content">
+                    <h3 className="explore-text">
                         Explore up to 50 strategies<br />
                         Check their performance and working principles Choose the one that fits your appetite
                     </h3>
-                    <h3 onClick={handleBackClick} className='explore_txt font_20 font_18' style={{ textAlign: 'center', letterSpacing: '6px', color: '#3c738a' }}>
-                        <b className='exp-btn'>EXPLORE NOW</b>
+                    <h3 onClick={handleBackClick} className="explore-now-btn">
+                        <b>EXPLORE NOW</b>
                     </h3>
                 </div>
-            </div >
-            <div className='investing'>
-                <h2 style={{ letterSpacing: '3px', textAlign: 'center' }}>
+            </div>
+
+            <hr />
+
+            {/* --- Section 3: Simple Investing Steps --- */}
+            <div className="section-3-steps">
+                <h2 className="steps-main-title">
                     Simple Investing
                 </h2>
-                <h3 style={{ letterSpacing: '3px', textAlign: 'center' }}>
-                    just a few steps and you willbe ready to start
+                <h3 className="steps-subtitle">
+                    just a few steps and you will be ready to start
                 </h3>
-                <div className='mobile'>
-                    <div style={{ marginTop: '100px', width: '300px', textAlign: 'left' }}>
-                        <h4 className='account effct-type-writter' >1. Create an account</h4>
-                        <h4 className='subs effct-type-writter' onMouseOver={() => setImg('mobile_img2')} onMouseOut={() => setImg('mobile_img')}>2. Choose and subscribe the strategy that fits you</h4>
-                        <h4 className='follow effct-type-writter' onMouseOver={() => setImg('mobile_img3')} onMouseOut={() => setImg('mobile_img')}>3. Follow the action messages provided</h4>
+                
+                <div className="steps-content-wrapper">
+                    {/* Step List */}
+                    <div className="step-list">
+                        <h4 className="step-item">1. Create an account</h4>
+                        <h4 
+                            onMouseOver={() => setImg('mobile_img2')} 
+                            onMouseOut={() => setImg('mobile_img')}
+                            className="step-item"
+                        >
+                            2. Choose and subscribe the strategy that fits you
+                        </h4>
+                        <h4 
+                            onMouseOver={() => setImg('mobile_img3')} 
+                            onMouseOut={() => setImg('mobile_img')}
+                            className="step-item"
+                        >
+                            3. Follow the action messages provided
+                        </h4>
                     </div>
-                    <div className={`${img}`}>
+                    
+                    {/* Image Placeholder */}
+                    <div className={`steps-mobile-img ${img}`}>
+                        {/* The actual image or background for the steps */}
                         {/* <img src={ACC_MOBILE} alt='LOGO' /> */}
                     </div>
                 </div>
@@ -88,4 +126,4 @@ const MathTrade = (props) => {
     )
 }
 
-export default MathTrade
+export default MathTrade;

@@ -1,0 +1,187 @@
+/* Styles for MathTrade.css (Desktop First) */
+
+.math-trade-container {
+    max-width: 1200px;
+    /* Limits content width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section 1: Hero */
+.section-1-hero {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping for smaller devices */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 100px;
+    /* Space before next section */
+    position: relative;
+    /* Anchor for absolute elements if needed, but we'll use Flex for flow */
+}
+
+.hero-content {
+    order: 1;
+    /* First on desktop */
+    flex: 1;
+    min-width: 400px;
+}
+
+.mobile-image-wrapper {
+    order: 2;
+    /* Second on desktop */
+    width: 350px;
+    /* Adjust size */
+    text-align: right;
+}
+
+.mobile-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.why-mathtrade-content {
+    order: 3;
+    /* Third, takes full width after content & image */
+    width: 100%;
+    padding: 50px 0;
+}
+
+.algorithm-title {
+    width: 50%;
+    /* Keep text block narrower for readability */
+}
+
+/* Section 2: Laptop */
+.section-2-laptop {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 0;
+}
+
+.laptop-image {
+    max-width: 40%;
+    height: auto;
+    margin-top: 80px;
+}
+
+.laptop-explore-content {
+    max-width: 45%;
+    margin-top: 300px;
+    /* Reduced from 300px to allow for responsive centering */
+}
+
+/* Section 3: Steps */
+.steps-content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0;
+}
+
+.step-list {
+    text-align: left;
+    max-width: 300px;
+}
+
+.steps-mobile-img {
+    /* Styles for the mobile image container (size, background image change on hover) */
+    width: 250px;
+    height: 400px;
+    /* The specific 'mobile_img' classes would define the background image */
+}
+
+/* -------------------------------------------------------------------------- */
+/* Mobile Styles (e.g., max-width: 768px) */
+/* -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .math-trade-container {
+        padding: 10px;
+    }
+
+    /* Section 1: Hero - Stack content and image */
+    .section-1-hero {
+        flex-direction: column;
+        align-items: center;
+        /* Center items when stacked */
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .hero-content {
+        order: 1;
+        /* Text first */
+        min-width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .mobile-image-wrapper {
+        order: 2;
+        /* Image second */
+        width: 80%;
+        /* Takes up more width */
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .mobile-image {
+        /* Ensure image scales down */
+        width: 100%;
+        height: auto;
+    }
+
+    .buttons-group {
+        justify-content: center;
+    }
+
+    .why-mathtrade-content {
+        order: 3;
+        padding: 30px 0;
+        text-align: left;
+        /* Keep body text left-aligned for readability */
+    }
+
+    .algorithm-title {
+        width: 100%;
+        /* Title takes full width */
+    }
+
+    /* Section 2: Laptop - Stack image and text */
+    .section-2-laptop {
+        flex-direction: column;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .laptop-image {
+        max-width: 80%;
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .laptop-explore-content {
+        max-width: 100%;
+        margin-top: 0;
+    }
+
+    /* Section 3: Steps - Stack steps and mobile image */
+    .steps-content-wrapper {
+        flex-direction: column;
+    }
+
+    .step-list {
+        order: 2;
+        /* Steps move below the image for better flow */
+        margin-top: 20px;
+    }
+
+    .steps-mobile-img {
+        order: 1;
+        /* Image moves up */
+        margin-bottom: 30px;
+        width: 250px;
+        height: 320px;
+    }
+}
